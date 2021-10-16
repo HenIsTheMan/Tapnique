@@ -123,6 +123,29 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &544082851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7142958120884233548, guid: ae014ed3754c73e418aada383e15cc02,
+    type: 3}
+  m_PrefabInstance: {fileID: 662734191}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &544082852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544082851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8036e8748c6411947b8c524739d5cbaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0.4
+  shldUseLateUpdate: 0
+  tmpComponent: {fileID: 662734193}
+  textsWithNoEllipsis:
+  - Tap anywhere to begin!
 --- !u!1001 &662734191
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -133,12 +156,12 @@ PrefabInstance:
     - target: {fileID: 7142958120884233548, guid: ae014ed3754c73e418aada383e15cc02,
         type: 3}
       propertyPath: m_Name
-      value: TapAnywhereToBeginText
+      value: BottomText
       objectReference: {fileID: 0}
     - target: {fileID: 7142958120884233650, guid: ae014ed3754c73e418aada383e15cc02,
         type: 3}
       propertyPath: m_text
-      value: Tap anywhere to begin!
+      value: Loading
       objectReference: {fileID: 0}
     - target: {fileID: 7142958120884233651, guid: ae014ed3754c73e418aada383e15cc02,
         type: 3}
@@ -263,6 +286,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 662734191}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &662734193 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7142958120884233650, guid: ae014ed3754c73e418aada383e15cc02,
+    type: 3}
+  m_PrefabInstance: {fileID: 662734191}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544082851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1390779633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -273,7 +308,7 @@ PrefabInstance:
     - target: {fileID: 7142958120884233548, guid: ae014ed3754c73e418aada383e15cc02,
         type: 3}
       propertyPath: m_Name
-      value: TitleText
+      value: TopText
       objectReference: {fileID: 0}
     - target: {fileID: 7142958120884233650, guid: ae014ed3754c73e418aada383e15cc02,
         type: 3}
@@ -328,12 +363,12 @@ PrefabInstance:
     - target: {fileID: 7142958120884233651, guid: ae014ed3754c73e418aada383e15cc02,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 2.7
       objectReference: {fileID: 0}
     - target: {fileID: 7142958120884233651, guid: ae014ed3754c73e418aada383e15cc02,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 2.7
       objectReference: {fileID: 0}
     - target: {fileID: 7142958120884233651, guid: ae014ed3754c73e418aada383e15cc02,
         type: 3}
@@ -378,7 +413,7 @@ PrefabInstance:
     - target: {fileID: 7142958120884233651, guid: ae014ed3754c73e418aada383e15cc02,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 240
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7142958120884233651, guid: ae014ed3754c73e418aada383e15cc02,
         type: 3}
@@ -403,6 +438,73 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1390779633}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1390779635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7142958120884233548, guid: ae014ed3754c73e418aada383e15cc02,
+    type: 3}
+  m_PrefabInstance: {fileID: 1390779633}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1390779636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390779635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe8524a4f473ebf4896af94fe80e521a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shldInit: 1
+  shldUpdate: 1
+  tmpTextComponent: {fileID: 1390779637}
+  animCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -2
+      outSlope: -2
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  scaleFactor: 14
+--- !u!114 &1390779637 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7142958120884233650, guid: ae014ed3754c73e418aada383e15cc02,
+    type: 3}
+  m_PrefabInstance: {fileID: 1390779633}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390779635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2101404706
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -752,7 +854,13 @@ MonoBehaviour:
   shldWorldSpacePosChange: 0
   parentChildrenSetArr:
   - <ParentRectTransform>k__BackingField: {fileID: 2023829668751206887}
-    <ChildAnchorPresetSetList>k__BackingField: []
+    <ChildAnchorPresetSetList>k__BackingField:
+    - childRectTransform: {fileID: 2101404707}
+      anchorPreset: 11
+    - childRectTransform: {fileID: 1390779634}
+      anchorPreset: 11
+    - childRectTransform: {fileID: 662734192}
+      anchorPreset: 11
 --- !u!4 &3674695453034168788
 Transform:
   m_ObjectHideFlags: 0
