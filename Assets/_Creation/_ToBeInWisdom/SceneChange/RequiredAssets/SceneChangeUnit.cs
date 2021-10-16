@@ -38,7 +38,12 @@ namespace Genesis.Creation {
 		[SerializeField]
 		private LocalPhysicsMode localPhysicsMode;
 
+		[SerializeField]
+		private UnloadSceneOptions unloadSceneOptions;
+
 		private bool canLoadScene = true;
+
+		private bool canUnloadScene = true;
 
 		#if UNITY_EDITOR
 
@@ -90,6 +95,24 @@ namespace Genesis.Creation {
 			};
 		}
 
+		public void UnloadSceneAsync() {
+			if(!canUnloadScene) {
+				return;
+			}
+
+			canUnloadScene = false;
+
+			AsyncOperation asyncOperation = SceneManager.UnloadSceneAsync(sceneName, unloadSceneOptions);
+
+			if(asyncOperation == null) { //Need to check as operation is async
+				UnityEngine.Assertions.Assert.IsTrue(false, "asyncOperation == null");
+			}
+
+			asyncOperation.completed += (_) => {
+				canUnloadScene = true;
+			};
+		}
+
 		internal IEnumerator LoadSceneCoroutine() {
 			if(!canLoadScene) {
 				yield break;
@@ -127,7 +150,7 @@ namespace Genesis.Creation {
 			canLoadScene = true;
 		}
 
-		public void LoadSceneAsync(out AsyncOperation asyncOperation) {
+		internal void LoadSceneAsync(out AsyncOperation asyncOperation) {
 			if(!canLoadScene) {
 				asyncOperation = null;
 				return;
@@ -146,6 +169,43 @@ namespace Genesis.Creation {
 
 			asyncOperation.completed += (_) => {
 				canLoadScene = true;
+			};
+		}
+
+		internal IEnumerator UnloadSceneCoroutine() {
+			if(!canUnloadScene) {
+				yield break;
+			}
+
+			canUnloadScene = false;
+
+			AsyncOperation asyncOperation = SceneManager.UnloadSceneAsync(sceneName, unloadSceneOptions);
+
+			if(asyncOperation == null) { //Need to check as operation is async
+				UnityEngine.Assertions.Assert.IsTrue(false, "asyncOperation == null");
+			}
+
+			yield return asyncOperation;
+
+			canUnloadScene = true;
+		}
+
+		internal void UnloadSceneAsync(out AsyncOperation asyncOperation) {
+			if(!canUnloadScene) {
+				asyncOperation = null;
+				return;
+			}
+
+			canUnloadScene = false;
+
+			asyncOperation = SceneManager.UnloadSceneAsync(sceneName, unloadSceneOptions);
+
+			if(asyncOperation == null) { //Need to check as operation is async
+				UnityEngine.Assertions.Assert.IsTrue(false, "asyncOperation == null");
+			}
+
+			asyncOperation.completed += (_) => {
+				canUnloadScene = true;
 			};
 		}
 	}
