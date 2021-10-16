@@ -390,9 +390,6 @@ MonoBehaviour:
     - <Mtl>k__BackingField: {fileID: 2100000, guid: 78639c7ec849a464fb231458e034a472,
         type: 2}
       <MyMtlType>k__BackingField: 0
-    - <Mtl>k__BackingField: {fileID: 2100000, guid: 9f48f919a1cd94143bd8ae3a074e0238,
-        type: 2}
-      <MyMtlType>k__BackingField: 1
     - <Mtl>k__BackingField: {fileID: 2100000, guid: fc00cd716b98330419149f8aeaf73fe9,
         type: 2}
       <MyMtlType>k__BackingField: 0
@@ -433,5 +430,8 @@ MonoBehaviour:
       <MyMtlType>k__BackingField: 0
   - <MtlSetArr>k__BackingField:
     - <Mtl>k__BackingField: {fileID: 2100000, guid: d24ccb65961be174e823905fb1f5d2ad,
+        type: 2}
+      <MyMtlType>k__BackingField: 1
+    - <Mtl>k__BackingField: {fileID: 2100000, guid: 9f48f919a1cd94143bd8ae3a074e0238,
         type: 2}
       <MyMtlType>k__BackingField: 1
