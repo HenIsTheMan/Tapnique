@@ -34,7 +34,7 @@ namespace Genesis.Creation {
 		[SerializeField]
 		private LocalPhysicsMode localPhysicsMode;
 
-		private bool canChangeScene = true;
+		private bool canLoadScene = true;
 
 		#if UNITY_EDITOR
 
@@ -50,27 +50,27 @@ namespace Genesis.Creation {
 
 		#endif
 
-		public void ChangeScene() {
-			if(!canChangeScene) {
+		public void LoadScene() {
+			if(!canLoadScene) {
 				return;
 			}
 
-			canChangeScene = false;
+			canLoadScene = false;
 
 			_ = SceneManager.LoadScene(sceneName, new LoadSceneParameters {
 				loadSceneMode = loadSceneMode,
 				localPhysicsMode = localPhysicsMode
 			});
 
-			canChangeScene = true;
+			canLoadScene = true;
 		}
 
-		public void ChangeSceneAsync() {
-			if(!canChangeScene) {
+		public void LoadSceneAsync() {
+			if(!canLoadScene) {
 				return;
 			}
 
-			canChangeScene = false;
+			canLoadScene = false;
 
 			AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName, new LoadSceneParameters {
 				loadSceneMode = loadSceneMode,
@@ -82,16 +82,16 @@ namespace Genesis.Creation {
 			}
 
 			asyncOperation.completed += (_) => {
-				canChangeScene = true;
+				canLoadScene = true;
 			};
 		}
 
-		internal IEnumerator ChangeSceneCoroutine() {
-			if(!canChangeScene) {
+		internal IEnumerator LoadSceneCoroutine() {
+			if(!canLoadScene) {
 				yield break;
 			}
 
-			canChangeScene = false;
+			canLoadScene = false;
 
 			AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName, new LoadSceneParameters {
 				loadSceneMode = loadSceneMode,
@@ -104,32 +104,32 @@ namespace Genesis.Creation {
 
 			yield return asyncOperation;
 
-			canChangeScene = true;
+			canLoadScene = true;
 		}
 
-		internal void ChangeScene(out Scene scene) {
-			if(!canChangeScene) {
+		internal void LoadScene(out Scene scene) {
+			if(!canLoadScene) {
 				scene = default(Scene);
 				return;
 			}
 
-			canChangeScene = false;
+			canLoadScene = false;
 
 			scene = SceneManager.LoadScene(sceneName, new LoadSceneParameters {
 				loadSceneMode = loadSceneMode,
 				localPhysicsMode = localPhysicsMode
 			});
 
-			canChangeScene = true;
+			canLoadScene = true;
 		}
 
-		public void ChangeSceneAsync(out AsyncOperation asyncOperation) {
-			if(!canChangeScene) {
+		public void LoadSceneAsync(out AsyncOperation asyncOperation) {
+			if(!canLoadScene) {
 				asyncOperation = null;
 				return;
 			}
 
-			canChangeScene = false;
+			canLoadScene = false;
 
 			asyncOperation = SceneManager.LoadSceneAsync(sceneName, new LoadSceneParameters {
 				loadSceneMode = loadSceneMode,
@@ -141,7 +141,7 @@ namespace Genesis.Creation {
 			}
 
 			asyncOperation.completed += (_) => {
-				canChangeScene = true;
+				canLoadScene = true;
 			};
 		}
 	}

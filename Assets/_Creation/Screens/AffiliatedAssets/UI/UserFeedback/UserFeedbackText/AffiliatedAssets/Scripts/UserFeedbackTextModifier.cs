@@ -98,6 +98,16 @@ namespace Genesis.Creation {
 			userFeedbackText.text = ProcessingStr;
 		}
 
+		internal void Success(TMP_Text userFeedbackText) {
+			userFeedbackText.fontSharedMaterial = SuccessMtl;
+			userFeedbackText.text = SuccessStr;
+		}
+
+		internal void Failure(TMP_Text userFeedbackText) {
+			userFeedbackText.fontSharedMaterial = FailureMtl;
+			userFeedbackText.text = FailureStr;
+		}
+
 		internal IEnumerator OnSuccessCoroutine(TMP_Text userFeedbackText) {
 			yield return SuccessCoroutine(userFeedbackText);
 		}

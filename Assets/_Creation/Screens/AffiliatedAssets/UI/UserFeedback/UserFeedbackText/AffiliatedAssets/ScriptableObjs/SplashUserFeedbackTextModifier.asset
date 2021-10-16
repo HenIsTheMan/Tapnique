@@ -15,10 +15,14 @@ MonoBehaviour:
   <InitialStr>k__BackingField: 
   <ProcessingStr>k__BackingField: Loading
   <SuccessStr>k__BackingField: Tap anywhere to begin!
-  <FailureStr>k__BackingField: 
-  <InitialMtl>k__BackingField: {fileID: 0}
-  <ProcessingMtl>k__BackingField: {fileID: 0}
-  <SuccessMtl>k__BackingField: {fileID: 0}
-  <FailureMtl>k__BackingField: {fileID: 0}
+  <FailureStr>k__BackingField: Failed to load game!
+  <InitialMtl>k__BackingField: {fileID: 2100000, guid: 9f48f919a1cd94143bd8ae3a074e0238,
+    type: 2}
+  <ProcessingMtl>k__BackingField: {fileID: 2100000, guid: 9f48f919a1cd94143bd8ae3a074e0238,
+    type: 2}
+  <SuccessMtl>k__BackingField: {fileID: 2100000, guid: 9f48f919a1cd94143bd8ae3a074e0238,
+    type: 2}
+  <FailureMtl>k__BackingField: {fileID: 2100000, guid: 9f48f919a1cd94143bd8ae3a074e0238,
+    type: 2}
   <SuccessLifetime>k__BackingField: 0
   <FailureLifetime>k__BackingField: 0
