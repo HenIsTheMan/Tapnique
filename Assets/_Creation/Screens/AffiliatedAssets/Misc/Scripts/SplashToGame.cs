@@ -118,6 +118,8 @@ namespace Genesis.Creation {
 
 			myCam.depth = camPriorities.ToArray().Max() + 0.1f;
 
+			myCam.clearFlags = CameraClearFlags.Nothing;
+
 			userFeedbackTextModifier.Success(userFeedbackText);
 
 			canClick = true;
