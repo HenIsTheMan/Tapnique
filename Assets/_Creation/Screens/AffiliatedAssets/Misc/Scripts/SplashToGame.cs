@@ -46,6 +46,9 @@ namespace Genesis.Creation {
 		[SerializeField]
 		private float finalDelay;
 
+		[SerializeField]
+		private Camera cam;
+
 		private bool canClick = false;
 
 		#if UNITY_EDITOR
@@ -99,6 +102,8 @@ namespace Genesis.Creation {
 
 			yield return StartCoroutine(MyOtherCoroutine(asyncOperation));
 
+			print(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+
 			userFeedbackTextModifier.Success(userFeedbackText);
 
 			canClick = true;
@@ -124,10 +129,14 @@ namespace Genesis.Creation {
 
 						yield return asyncOperation;
 
-						continue;
+						continue; //Force a continue
 					}
 
-					break;
+					if(Mathf.Approximately(asyncOperation.progress, 1.0f)) {
+						break;
+					} else {
+						yield return null;
+					}
 				} else {
 					yield return null;
 				}
