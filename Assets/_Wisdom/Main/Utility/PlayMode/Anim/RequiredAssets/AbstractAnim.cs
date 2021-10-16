@@ -38,6 +38,15 @@ namespace Genesis.Wisdom {
 			private set;
 		}
 
+		protected internal bool IsPlaying {
+			get;
+			private set;
+		}
+
+		protected internal bool IsUpdating {
+			get => isUpdating;
+		}
+
 		protected internal List<float> PeriodicDelayList {
 			set {
 				if(value == null) {

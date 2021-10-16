@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Genesis.Wisdom;
 using System.Linq;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 #if UNITY_EDITOR
 
@@ -14,7 +15,7 @@ using UnityEditor;
 
 namespace Genesis.Creation {
     internal sealed class SplashToGame: MonoBehaviour {
-		public void Callback() {
+		public async void Callback() {
 			if(!canClick) {
 				return;
 			}
@@ -22,10 +23,21 @@ namespace Genesis.Creation {
 			canClick = false;
 
 			canvasGrpFadeAnim.StartAnim(true);
+
+			mySceneChangeUnit.UnloadSceneAsync(out AsyncOperation asyncOperation);
+
+			asyncOperation.allowSceneActivation = false;
+
+			await Task.FromResult(canvasGrpFadeAnim.IsUpdating == false);
+
+			asyncOperation.allowSceneActivation = true;
 		}
 
 		[SerializeField]
-		private SceneChangeUnit sceneChangeUnit;
+		private SceneChangeUnit mySceneChangeUnit;
+
+		[SerializeField]
+		private SceneChangeUnit otherSceneChangeUnit;
 
 		[SerializeField]
 		private TMP_Text userFeedbackText;
@@ -98,7 +110,7 @@ namespace Genesis.Creation {
 
 			yield return new WaitForSeconds(initialDelay);
 
-			sceneChangeUnit.LoadSceneAsync(out AsyncOperation asyncOperation);
+			otherSceneChangeUnit.LoadSceneAsync(out AsyncOperation asyncOperation);
 
 			asyncOperation.allowSceneActivation = false;
 
