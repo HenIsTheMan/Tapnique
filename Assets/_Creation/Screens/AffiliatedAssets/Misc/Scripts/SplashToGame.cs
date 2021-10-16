@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Genesis.Wisdom;
+using System.Threading.Tasks;
 
 #if UNITY_EDITOR
 
@@ -87,6 +88,8 @@ namespace Genesis.Creation {
 		}
 
 		private IEnumerator MyOtherCoroutine(AsyncOperation asyncOperation) {
+			Task myTask = Task.Delay(4000);
+
 			do {
 				foreach(Image progressImg in progressImgArr) {
 					progressImg.fillAmount = Mathf.Clamp01(asyncOperation.progress / 0.9f);
@@ -99,7 +102,7 @@ namespace Genesis.Creation {
 				}
 
 				yield return null;
-			} while(!asyncOperation.isDone);
+			} while(!asyncOperation.isDone || !TaskHelper.HandleTask(myTask));
 		}
     }
 }
