@@ -40,6 +40,12 @@ namespace Genesis.Creation {
 		[SerializeField]
 		private CanvasGrpFadeAnim canvasGrpFadeAnim;
 
+		[SerializeField]
+		private float initialDelay;
+
+		[SerializeField]
+		private float finalDelay;
+
 		private bool canClick = false;
 
 		#if UNITY_EDITOR
@@ -71,13 +77,25 @@ namespace Genesis.Creation {
 
 			userFeedbackTextModifier.InAwake(userFeedbackText);
 
+			foreach(Image progressImg in progressImgArr) {
+				progressImg.fillAmount = 0.0f;
+			}
+
+			foreach(TMP_Text progressText in progressTextArr) {
+				progressText.text = "0%";
+			}
+
 			_ = StartCoroutine(nameof(MyCoroutine));
 		}
 
 		private IEnumerator MyCoroutine() {
 			userFeedbackTextModifier.Processing(userFeedbackText);
 
+			yield return new WaitForSeconds(initialDelay);
+
 			sceneChangeUnit.LoadSceneAsync(out AsyncOperation asyncOperation);
+
+			asyncOperation.allowSceneActivation = false;
 
 			yield return StartCoroutine(MyOtherCoroutine(asyncOperation));
 
@@ -87,19 +105,33 @@ namespace Genesis.Creation {
 		}
 
 		private IEnumerator MyOtherCoroutine(AsyncOperation asyncOperation) {
-			do {
+			for(;;) {
 				foreach(Image progressImg in progressImgArr) {
-					progressImg.fillAmount = Mathf.Clamp01(asyncOperation.progress / 0.9f);
+					progressImg.fillAmount = asyncOperation.progress;
 				}
 
 				foreach(TMP_Text progressText in progressTextArr) {
 					progressText.text = ((int)Mathf.Round(
-						Mathf.Clamp01(asyncOperation.progress / 0.9f) * 100.0f
-					)).ToString();
+						asyncOperation.progress * 100.0f
+					)).ToString() + '%';
 				}
 
-				yield return null;
-			} while(!asyncOperation.isDone);
+				if(asyncOperation.progress >= 0.9f) {
+					if(!asyncOperation.allowSceneActivation) {
+						yield return new WaitForSeconds(finalDelay);
+
+						asyncOperation.allowSceneActivation = true;
+
+						yield return asyncOperation;
+
+						continue;
+					}
+
+					break;
+				} else {
+					yield return null;
+				}
+			}
 		}
     }
 }
