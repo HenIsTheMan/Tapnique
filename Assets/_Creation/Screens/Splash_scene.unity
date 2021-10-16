@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -537,6 +537,7 @@ MonoBehaviour:
   canvasGrpFadeAnim: {fileID: 2023829668751206889}
   initialDelay: 1.4
   finalDelay: 1.4
+  myCam: {fileID: 2023829667087332357}
 --- !u!224 &1011528219 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4638885074137163382, guid: b48b7633f1ebd8c45b2387cf71e64115,

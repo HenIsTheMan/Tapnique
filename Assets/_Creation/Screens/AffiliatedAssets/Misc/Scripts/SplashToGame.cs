@@ -69,10 +69,10 @@ namespace Genesis.Creation {
 		#endif
 
 		private void Awake() {
-			if(userFeedbackTextModifier == null || userFeedbackText == null) {
+			if(userFeedbackTextModifier == null || userFeedbackText == null || myCam == null) {
 				UnityEngine.Assertions.Assert.IsTrue(
 					false,
-					"userFeedbackTextModifier == null || userFeedbackText == null"
+					"userFeedbackTextModifier == null || userFeedbackText == null || myCam == null"
 				);
 				return;
 			}
@@ -104,9 +104,19 @@ namespace Genesis.Creation {
 
 			yield return StartCoroutine(MyOtherCoroutine(asyncOperation));
 
-			IEnumerable<Camera> otherCams = FindObjectsOfType<Camera>().Where(cam => {
-				return cam != myCam;
+			List<Camera> otherCams = FindObjectsOfType<Camera>().ToList();
+			if(!otherCams.Remove(myCam)) {
+				UnityEngine.Assertions.Assert.IsTrue(false, "!otherCams.Remove(myCam)");
+			}
+
+			int count = otherCams.Count;
+			List<float> camPriorities = new List<float>(count);
+
+			otherCams.ForEach((otherCam) => {
+				camPriorities.Add(otherCam.depth);
 			});
+
+			myCam.depth = camPriorities.ToArray().Max() + 0.1f;
 
 			userFeedbackTextModifier.Success(userFeedbackText);
 
@@ -136,7 +146,7 @@ namespace Genesis.Creation {
 						continue; //Force a continue
 					}
 
-					if(Mathf.Approximately(asyncOperation.progress, 1.0f)) {
+					if(asyncOperation.isDone) {
 						break;
 					} else {
 						yield return null;
