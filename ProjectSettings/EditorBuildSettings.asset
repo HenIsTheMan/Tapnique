@@ -6,15 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Creation/Screens/Regular/RegularBootScene.unity
-    guid: 4ad972f898c4acd4b84422b5750bef6a
+    path: Assets/_Creation/Screens/Splash_scene.unity
+    guid: 7c95d74655a7c71448f24c40b479a392
   - enabled: 1
-    path: Assets/_Creation/Screens/Regular/RegularIntroScene.unity
-    guid: a16ad2e827de24646b8f33fff2fe7b3f
-  - enabled: 1
-    path: Assets/_Creation/Screens/Regular/RegularSignIn/RegularSignInScene.unity
-    guid: b20c89c68c72283438892d89e8ab6a8b
-  - enabled: 1
-    path: Assets/_Creation/Screens/Regular/RegularProfile/RegularProfileScene.unity
-    guid: e20d7c80278309e4dbbc103f99282b5c
+    path: Assets/_Creation/Screens/Game_scene.unity
+    guid: 12c4277d186694549990faf0e40f21fb
   m_configObjects: {}
