@@ -123,6 +123,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &116106109 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1790542812610754320, guid: 35dbe48f9c026404c88939e7e2a8a239,
+    type: 3}
+  m_PrefabInstance: {fileID: 1790542813411436463}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &416971487
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +210,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 416971487}
   m_CullTransparentMesh: 1
+--- !u!114 &541461319 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4638885075175615590, guid: b48b7633f1ebd8c45b2387cf71e64115,
+    type: 3}
+  m_PrefabInstance: {fileID: 4638885073930949741}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &831692075
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -505,9 +529,12 @@ MonoBehaviour:
   userFeedbackText: {fileID: 831692079}
   userFeedbackTextModifier: {fileID: 11400000, guid: 005ce44ea5551c74a9bba45c71615487,
     type: 2}
-  progressImgArr: []
-  progressTextArr: []
-  canvasGrpFadeAnim: {fileID: 0}
+  progressImgArr:
+  - {fileID: 1903674402}
+  - {fileID: 541461319}
+  progressTextArr:
+  - {fileID: 116106109}
+  canvasGrpFadeAnim: {fileID: 2023829668751206889}
 --- !u!224 &1011528219 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4638885074137163382, guid: b48b7633f1ebd8c45b2387cf71e64115,
@@ -819,6 +846,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1903674402 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3452953142436443679, guid: a12e482691cb9fc40897fbc771bc1d30,
+    type: 3}
+  m_PrefabInstance: {fileID: 3452953143132826067}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &1983908426 stripped
@@ -1276,6 +1315,8 @@ GameObject:
   - component: {fileID: 2023829668751206884}
   - component: {fileID: 2023829668751206885}
   - component: {fileID: 2023829668751206886}
+  - component: {fileID: 2023829668751206890}
+  - component: {fileID: 2023829668751206889}
   m_Layer: 5
   m_Name: CamCanvas
   m_TagString: Untagged
@@ -1283,6 +1324,45 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2023829668751206889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023829668751206888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fbab201e7ad14f4693589d222a8ed99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLooping: 0
+  startTimeOffset: 0
+  animDuration: 1.4
+  shldPresetValsNow: 0
+  presetLerpFactor: 0
+  periodicDelayList: []
+  myRateOfChangeType: 0
+  shldUseUnscaledDt: 0
+  shldUseWaitForSecondsRealtime: 0
+  shldPlayOnAwake: 0
+  isUpdating: 0
+  canvasGrp: {fileID: 2023829668751206890}
+  fadeAnimSupport:
+    startAlpha: 1
+    endAlpha: 0
+--- !u!225 &2023829668751206890
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023829668751206888}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &2884402454663280475
 MonoBehaviour:
   m_ObjectHideFlags: 0
