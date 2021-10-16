@@ -378,6 +378,9 @@ MonoBehaviour:
   colorScheme: {fileID: 11400000, guid: dd56af6f4fff335469128580dab75a31, type: 2}
   mtlSetArrWrapperArr:
   - <MtlSetArr>k__BackingField:
+    - <Mtl>k__BackingField: {fileID: 2100000, guid: 3b07c9f6531206d458c721f30b88b7f0,
+        type: 2}
+      <MyMtlType>k__BackingField: 1
     - <Mtl>k__BackingField: {fileID: 2100000, guid: dba2e4d8a4febf740a92374697157ef6,
         type: 2}
       <MyMtlType>k__BackingField: 0
@@ -390,10 +393,10 @@ MonoBehaviour:
     - <Mtl>k__BackingField: {fileID: 2100000, guid: 9f48f919a1cd94143bd8ae3a074e0238,
         type: 2}
       <MyMtlType>k__BackingField: 1
-  - <MtlSetArr>k__BackingField:
-    - <Mtl>k__BackingField: {fileID: 2100000, guid: 3b07c9f6531206d458c721f30b88b7f0,
+    - <Mtl>k__BackingField: {fileID: 2100000, guid: fc00cd716b98330419149f8aeaf73fe9,
         type: 2}
-      <MyMtlType>k__BackingField: 1
+      <MyMtlType>k__BackingField: 0
+  - <MtlSetArr>k__BackingField:
     - <Mtl>k__BackingField: {fileID: 2100000, guid: 7c996bac5d754024c9384f1a9765dbe3,
         type: 2}
       <MyMtlType>k__BackingField: 1
@@ -404,13 +407,13 @@ MonoBehaviour:
     - <Mtl>k__BackingField: {fileID: 2100000, guid: 415a267dc4a2b63409ffc8c970255294,
         type: 2}
       <MyMtlType>k__BackingField: 1
-    - <Mtl>k__BackingField: {fileID: 2100000, guid: ba8d15622c41b3144bfce88f094340f5,
-        type: 2}
-      <MyMtlType>k__BackingField: 1
   - <MtlSetArr>k__BackingField:
     - <Mtl>k__BackingField: {fileID: 2100000, guid: fa09aadc125dce04e89cb3e1647d60a1,
         type: 2}
       <MyMtlType>k__BackingField: 1
+    - <Mtl>k__BackingField: {fileID: 2100000, guid: dc6d77e50be3b3740a36403fcfd8cd36,
+        type: 2}
+      <MyMtlType>k__BackingField: 0
   - <MtlSetArr>k__BackingField:
     - <Mtl>k__BackingField: {fileID: 2100000, guid: 7ea48a80a72c7014ba40e34b50bf2b05,
         type: 2}
@@ -422,4 +425,3 @@ MonoBehaviour:
     - <Mtl>k__BackingField: {fileID: 2100000, guid: b44a36134f41eba428f8d309aaadd079,
         type: 2}
       <MyMtlType>k__BackingField: 0
-  - <MtlSetArr>k__BackingField: []

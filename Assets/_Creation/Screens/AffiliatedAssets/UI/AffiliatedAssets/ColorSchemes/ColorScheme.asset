@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ColorScheme
   m_EditorClassIdentifier: 
   <ColorArr>k__BackingField:
-  - {r: 0.046665095, g: 0.2874409, b: 0.38642952, a: 1}
+  - {r: 0.28235295, g: 0.09411765, b: 0.7764706, a: 1}
   - {r: 0.00091058103, g: 0.78431374, b: 0, a: 1}
   - {r: 0.78431374, g: 0, b: 0, a: 1}
   - {r: 0.06124607, g: 0.06124607, b: 0.06124607, a: 1}
