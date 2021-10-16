@@ -93,6 +93,7 @@ namespace Genesis.Wisdom {
 		}
 
 		protected internal void StopAnim() {
+			isUpdating = false;
 			StopCoroutine(nameof(MyUpdateFunc));
 		}
 

@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using Genesis.Wisdom;
 using System.Linq;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 #if UNITY_EDITOR
 
@@ -15,7 +14,7 @@ using UnityEditor;
 
 namespace Genesis.Creation {
     internal sealed class SplashToGame: MonoBehaviour {
-		public async void Callback() {
+		public void Callback() {
 			if(!canClick) {
 				return;
 			}
@@ -24,13 +23,7 @@ namespace Genesis.Creation {
 
 			canvasGrpFadeAnim.StartAnim(true);
 
-			mySceneChangeUnit.UnloadSceneAsync(out AsyncOperation asyncOperation);
-
-			asyncOperation.allowSceneActivation = false;
-
-			await Task.FromResult(canvasGrpFadeAnim.IsUpdating == false);
-
-			asyncOperation.allowSceneActivation = true;
+			_ = StartCoroutine(nameof(UnloadSceneSoonCoroutine));
 		}
 
 		[SerializeField]
@@ -81,11 +74,13 @@ namespace Genesis.Creation {
 		#endif
 
 		private void Awake() {
-			if(userFeedbackTextModifier == null || userFeedbackText == null || myCam == null) {
-				UnityEngine.Assertions.Assert.IsTrue(
-					false,
-					"userFeedbackTextModifier == null || userFeedbackText == null || myCam == null"
-				);
+			if(userFeedbackTextModifier == null
+				|| userFeedbackText == null
+				|| mySceneChangeUnit == null
+				|| otherSceneChangeUnit == null
+				|| myCam == null
+			) {
+				UnityEngine.Assertions.Assert.IsTrue(false);
 				return;
 			}
 
@@ -169,6 +164,14 @@ namespace Genesis.Creation {
 					yield return null;
 				}
 			}
+		}
+
+		private IEnumerator UnloadSceneSoonCoroutine() {
+			yield return new WaitUntil(() => {
+				return canvasGrpFadeAnim.IsUpdating == false;
+			});
+
+			mySceneChangeUnit.UnloadSceneAsync();
 		}
     }
 }

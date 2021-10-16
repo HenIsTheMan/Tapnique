@@ -525,7 +525,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5879727614286c04b98cfff05ab9ed31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneChangeUnit: {fileID: 11400000, guid: 2ef6e8abe7d21c94696fbf4b60f8d644, type: 2}
+  mySceneChangeUnit: {fileID: 11400000, guid: 71863d460f972fa4e88efb42c480f9b0, type: 2}
+  otherSceneChangeUnit: {fileID: 11400000, guid: 2ef6e8abe7d21c94696fbf4b60f8d644,
+    type: 2}
   userFeedbackText: {fileID: 831692079}
   userFeedbackTextModifier: {fileID: 11400000, guid: 005ce44ea5551c74a9bba45c71615487,
     type: 2}
@@ -1345,7 +1347,7 @@ MonoBehaviour:
   shldPresetValsNow: 0
   presetLerpFactor: 0
   periodicDelayList: []
-  myRateOfChangeType: 0
+  myRateOfChangeType: 23
   shldUseUnscaledDt: 0
   shldUseWaitForSecondsRealtime: 0
   shldPlayOnAwake: 0
