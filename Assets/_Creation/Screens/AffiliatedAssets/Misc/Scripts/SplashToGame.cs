@@ -79,21 +79,27 @@ namespace Genesis.Creation {
 
 			sceneChangeUnit.LoadSceneAsync(out AsyncOperation asyncOperation);
 
-			while(!asyncOperation.isDone) {
-				foreach(Image progressImg in progressImgArr) {
-					progressImg.fillAmount = asyncOperation.progress / 0.9f;
-				}
-
-				foreach(TMP_Text progressText in progressTextArr) {
-					progressText.text = ((int)Mathf.Round(asyncOperation.progress / 0.9f * 100.0f)).ToString();
-				}
-
-				yield return null;
-			}
+			yield return StartCoroutine(MyOtherCoroutine(asyncOperation));
 
 			userFeedbackTextModifier.Success(userFeedbackText);
 
 			canClick = true;
+		}
+
+		private IEnumerator MyOtherCoroutine(AsyncOperation asyncOperation) {
+			do {
+				foreach(Image progressImg in progressImgArr) {
+					progressImg.fillAmount = Mathf.Clamp01(asyncOperation.progress / 0.9f);
+				}
+
+				foreach(TMP_Text progressText in progressTextArr) {
+					progressText.text = ((int)Mathf.Round(
+						Mathf.Clamp01(asyncOperation.progress / 0.9f) * 100.0f
+					)).ToString();
+				}
+
+				yield return null;
+			} while(!asyncOperation.isDone);
 		}
     }
 }
