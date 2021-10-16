@@ -163,6 +163,11 @@ PrefabInstance:
       propertyPath: m_text
       value: Loading
       objectReference: {fileID: 0}
+    - target: {fileID: 7142958120884233650, guid: ae014ed3754c73e418aada383e15cc02,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d0f4cc755ae66c468fc0fd42b780c97, type: 2}
     - target: {fileID: 7142958120884233651, guid: ae014ed3754c73e418aada383e15cc02,
         type: 3}
       propertyPath: m_Pivot.x
