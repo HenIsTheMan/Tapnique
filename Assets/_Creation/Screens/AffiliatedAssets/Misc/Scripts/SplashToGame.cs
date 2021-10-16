@@ -3,6 +3,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Genesis.Wisdom;
+using System.Linq;
+using System.Collections.Generic;
 
 #if UNITY_EDITOR
 
@@ -47,7 +49,7 @@ namespace Genesis.Creation {
 		private float finalDelay;
 
 		[SerializeField]
-		private Camera cam;
+		private Camera myCam;
 
 		private bool canClick = false;
 
@@ -102,7 +104,9 @@ namespace Genesis.Creation {
 
 			yield return StartCoroutine(MyOtherCoroutine(asyncOperation));
 
-			print(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+			IEnumerable<Camera> otherCams = FindObjectsOfType<Camera>().Where(cam => {
+				return cam != myCam;
+			});
 
 			userFeedbackTextModifier.Success(userFeedbackText);
 

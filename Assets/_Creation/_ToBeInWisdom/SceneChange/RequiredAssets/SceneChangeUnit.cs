@@ -17,6 +17,10 @@ namespace Genesis.Creation {
 		order = 1
 	)]
 	internal sealed class SceneChangeUnit: ScriptableObject {
+		internal string SceneName {
+			get => sceneName;
+		}
+
 		#if UNITY_EDITOR
 
 		[SerializeField]
