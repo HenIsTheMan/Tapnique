@@ -378,9 +378,6 @@ MonoBehaviour:
   colorScheme: {fileID: 11400000, guid: dd56af6f4fff335469128580dab75a31, type: 2}
   mtlSetArrWrapperArr:
   - <MtlSetArr>k__BackingField:
-    - <Mtl>k__BackingField: {fileID: 2100000, guid: bbda2daa55d34774faac9d67dfe4a46f,
-        type: 2}
-      <MyMtlType>k__BackingField: 0
     - <Mtl>k__BackingField: {fileID: 2100000, guid: 7c996bac5d754024c9384f1a9765dbe3,
         type: 2}
       <MyMtlType>k__BackingField: 1
@@ -388,9 +385,6 @@ MonoBehaviour:
     - <Mtl>k__BackingField: {fileID: 2100000, guid: a52158cdcda29734dbed04527a55c86a,
         type: 2}
       <MyMtlType>k__BackingField: 0
-    - <Mtl>k__BackingField: {fileID: 2100000, guid: 738913d6e48089f4494373d1ee01ac5d,
-        type: 2}
-      <MyMtlType>k__BackingField: 1
     - <Mtl>k__BackingField: {fileID: 2100000, guid: dba2e4d8a4febf740a92374697157ef6,
         type: 2}
       <MyMtlType>k__BackingField: 0
@@ -415,12 +409,6 @@ MonoBehaviour:
     - <Mtl>k__BackingField: {fileID: 2100000, guid: 8c619ba1be8bad14ab5121b961575794,
         type: 2}
       <MyMtlType>k__BackingField: 0
-    - <Mtl>k__BackingField: {fileID: 2100000, guid: d53a646848a7b404e82529da4a3ab8cb,
-        type: 2}
-      <MyMtlType>k__BackingField: 1
-    - <Mtl>k__BackingField: {fileID: 2100000, guid: d2abe15118f69a745a8a99c12e9430d9,
-        type: 2}
-      <MyMtlType>k__BackingField: 0
     - <Mtl>k__BackingField: {fileID: 2100000, guid: 4e0b4e6113027c242826b99f95296397,
         type: 2}
       <MyMtlType>k__BackingField: 0
@@ -428,9 +416,6 @@ MonoBehaviour:
         type: 2}
       <MyMtlType>k__BackingField: 1
   - <MtlSetArr>k__BackingField:
-    - <Mtl>k__BackingField: {fileID: 2100000, guid: 2005a893f1799cd428e2909bf16288a6,
-        type: 2}
-      <MyMtlType>k__BackingField: 1
     - <Mtl>k__BackingField: {fileID: 2100000, guid: da07a022809c1cc47a8aa838e1ea42b5,
         type: 2}
       <MyMtlType>k__BackingField: 1
@@ -445,9 +430,6 @@ MonoBehaviour:
         type: 2}
       <MyMtlType>k__BackingField: 0
   - <MtlSetArr>k__BackingField:
-    - <Mtl>k__BackingField: {fileID: 2100000, guid: b44a36134f41eba428f8d309aaadd079,
-        type: 2}
-      <MyMtlType>k__BackingField: 0
     - <Mtl>k__BackingField: {fileID: 2100000, guid: 7ea48a80a72c7014ba40e34b50bf2b05,
         type: 2}
       <MyMtlType>k__BackingField: 1
@@ -479,3 +461,7 @@ MonoBehaviour:
     - <Mtl>k__BackingField: {fileID: 2100000, guid: 5f80f294abe771640879fb4d8d646a37,
         type: 2}
       <MyMtlType>k__BackingField: 1
+  - <MtlSetArr>k__BackingField:
+    - <Mtl>k__BackingField: {fileID: 2100000, guid: b44a36134f41eba428f8d309aaadd079,
+        type: 2}
+      <MyMtlType>k__BackingField: 0
