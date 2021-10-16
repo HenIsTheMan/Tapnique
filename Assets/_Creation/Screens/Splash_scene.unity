@@ -367,7 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0.4
-  shldUseLateUpdate: 0
+  shldUseLateUpdate: 1
   tmpComponent: {fileID: 831692079}
   textsWithNoEllipsis:
   - Tap anywhere to begin!
@@ -1145,7 +1145,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295

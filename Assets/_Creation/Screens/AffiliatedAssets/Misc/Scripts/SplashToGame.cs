@@ -66,6 +66,9 @@ namespace Genesis.Creation {
 				return;
 			}
 
+			progressImgArr ??= new Image[0];
+			progressTextArr ??= new TMP_Text[0];
+
 			userFeedbackTextModifier.InAwake(userFeedbackText);
 
 			_ = StartCoroutine(nameof(MyCoroutine));
