@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2986128491dd104dbebbdb866a29135, type: 3}
-  m_Name: ToGameSceneChangeUnit
+  m_Name: SplashSceneChangeUnit
   m_EditorClassIdentifier: 
-  sceneAsset: {fileID: 102900000, guid: 12c4277d186694549990faf0e40f21fb, type: 3}
-  sceneName: Game_scene
+  sceneAsset: {fileID: 102900000, guid: 7c95d74655a7c71448f24c40b479a392, type: 3}
+  sceneName: Splash_scene
   loadSceneMode: 1
   localPhysicsMode: 0
+  unloadSceneOptions: 0
