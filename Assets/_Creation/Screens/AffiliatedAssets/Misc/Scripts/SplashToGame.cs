@@ -35,7 +35,7 @@ namespace Genesis.Creation {
 		private Image[] progressImgArr;
 
 		[SerializeField]
-		private Text[] progressTextArr;
+		private TMP_Text[] progressTextArr;
 
 		[SerializeField]
 		private CanvasGrpFadeAnim canvasGrpFadeAnim;
@@ -77,6 +77,14 @@ namespace Genesis.Creation {
 			sceneChangeUnit.LoadSceneAsync(out AsyncOperation asyncOperation);
 
 			while(!asyncOperation.isDone) {
+				foreach(Image progressImg in progressImgArr) {
+					progressImg.fillAmount = asyncOperation.progress / 0.9f;
+				}
+
+				foreach(TMP_Text progressText in progressTextArr) {
+					progressText.text = ((int)Mathf.Round(asyncOperation.progress / 0.9f * 100.0f)).ToString();
+				}
+
 				yield return null;
 			}
 

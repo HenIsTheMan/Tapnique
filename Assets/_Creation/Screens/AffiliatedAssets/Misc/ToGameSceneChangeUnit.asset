@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2986128491dd104dbebbdb866a29135, type: 3}
-  m_Name: ToRegularProfileSceneChangeUnit
+  m_Name: ToGameSceneChangeUnit
   m_EditorClassIdentifier: 
-  sceneAsset: {fileID: 102900000, guid: e20d7c80278309e4dbbc103f99282b5c, type: 3}
-  sceneName: RegularProfileScene
-  loadSceneMode: 0
+  sceneAsset: {fileID: 102900000, guid: 12c4277d186694549990faf0e40f21fb, type: 3}
+  sceneName: Game_scene
+  loadSceneMode: 1
   localPhysicsMode: 0
