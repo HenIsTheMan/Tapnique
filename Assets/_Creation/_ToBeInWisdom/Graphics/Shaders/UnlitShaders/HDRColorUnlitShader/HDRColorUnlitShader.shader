@@ -127,6 +127,7 @@ Shader "MyUnlitShaders/HDRColorUnlitShader" {
 
                 struct FragInputData {
                     float4 pos: SV_POSITION;
+                    float4 color: COLOR0;
                     float2 texCoords0: TEXCOORD0;
                 };
 
@@ -134,13 +135,14 @@ Shader "MyUnlitShaders/HDRColorUnlitShader" {
                     FragInputData fragInputData;
 
                     fragInputData.pos = UnityObjectToClipPos(vertexInputData.pos);
+                    fragInputData.color = vertexInputData.color;
                     fragInputData.texCoords0 = TRANSFORM_TEX(vertexInputData.texCoords0, _MainTex);
 
                     return fragInputData;
                 }
 
                 fixed4 FragMain(FragInputData fragInputData): SV_Target {
-                    return tex2D(_MainTex, fragInputData.texCoords0) * _Color;
+                    return tex2D(_MainTex, fragInputData.texCoords0) * _Color * fragInputData.color;
                 }
 
                 ENDHLSL
