@@ -1,0 +1,1 @@
+namespace Genesis.Wisdom {    internal sealed class SampleClassCR {		internal void Test() {			//Test		}    }}

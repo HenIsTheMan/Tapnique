@@ -1,0 +1,31 @@
+using UnityEngine;
+
+namespace Genesis.Wisdom {
+    internal sealed class SealedClass: MonoBehaviour {
+    #region For Use
+
+        #region Fields and Properties
+        #endregion
+
+        #region Unity User Callback Event Funcs
+        #endregion
+
+        #region Other Funcs
+        #endregion
+
+    #endregion
+
+    #region Not For Use
+
+        #region Fields and Properties
+        #endregion
+
+        #region Unity User Callback Event Funcs
+        #endregion
+
+        #region Other Funcs
+        #endregion
+
+    #endregion
+    }
+}

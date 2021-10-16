@@ -1,0 +1,23 @@
+namespace Genesis.Wisdom {
+    internal static class StaticClass: object {
+    #region For Use
+
+        #region Fields and Properties
+        #endregion
+
+        #region Funcs
+        #endregion
+
+    #endregion
+
+    #region Not For Use
+
+        #region Fields and Properties
+        #endregion
+
+        #region Funcs
+        #endregion
+
+    #endregion
+    }
+}

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "370304308971",
+    "firebase_url": "https://eventure-c2b1d-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "eventure-c2b1d",
+    "storage_bucket": "eventure-c2b1d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370304308971:android:485da684d942994d6cd0ae",
+        "android_client_info": {
+          "package_name": "com.ThePentaCrew.EVenture"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "370304308971-3gvp0njmop4226i89604vbpulodhfn0l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_o9hky6F8e4eIt8HkEzVsbkHWYksfN10"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "370304308971-3gvp0njmop4226i89604vbpulodhfn0l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

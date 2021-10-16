@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796f210b4460d624aaf2f8be7d3f1765, type: 3}
+  m_Name: RegularSignInUserFeedbackTextModifier
+  m_EditorClassIdentifier: 
+  <InitialStr>k__BackingField: '- Enter your Username/Email and Password -'
+  <ProcessingStr>k__BackingField: Signing In
+  <SuccessStr>k__BackingField: 
+  <FailureStr>k__BackingField: Sign In Failure!
+  <InitialMtl>k__BackingField: {fileID: 2100000, guid: 9f48f919a1cd94143bd8ae3a074e0238,
+    type: 2}
+  <ProcessingMtl>k__BackingField: {fileID: 2100000, guid: fa09aadc125dce04e89cb3e1647d60a1,
+    type: 2}
+  <SuccessMtl>k__BackingField: {fileID: 2100000, guid: 7c996bac5d754024c9384f1a9765dbe3,
+    type: 2}
+  <FailureMtl>k__BackingField: {fileID: 2100000, guid: 415a267dc4a2b63409ffc8c970255294,
+    type: 2}
+  <SuccessLifetime>k__BackingField: 0
+  <FailureLifetime>k__BackingField: 1.4
