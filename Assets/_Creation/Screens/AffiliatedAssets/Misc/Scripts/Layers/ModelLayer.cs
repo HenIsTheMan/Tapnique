@@ -2,7 +2,6 @@ using UnityEngine;
 using Genesis.Wisdom;
 using System.Collections;
 using UnityEngine.SceneManagement;
-using TMPro;
 
 #if UNITY_EDITOR
 
@@ -12,6 +11,9 @@ using UnityEditor;
 
 namespace Genesis.Creation {
     internal sealed class ModelLayer: MonoBehaviour {
+		[SerializeField]
+		private ViewLayer viewLayer;
+
         #if UNITY_EDITOR
 
 		[SerializeField]
@@ -22,9 +24,6 @@ namespace Genesis.Creation {
 		[UnmodifiableInInspector]
 		[SerializeField]
 		private string sceneName;
-
-		[SerializeField]
-		private TMP_Text countdownText;
 
 		[SerializeField]
 		private float startGameCountdownTime;
@@ -62,7 +61,7 @@ namespace Genesis.Creation {
 				return !SceneManager.GetSceneByName(sceneName).isLoaded;
 			});
 
-			countdownText.gameObject.SetActive(true);
+			viewLayer.ActivateDeactivateCountdownTextGameObj(true);
 			startGameTime = startGameCountdownTime;
 
 			while(startGameTime > 0.0f) {
@@ -70,17 +69,17 @@ namespace Genesis.Creation {
 				startGameTime = Mathf.Max(0.0f, startGameTime);
 
 				if(Mathf.Approximately(startGameTime, 0.0f)) {
-					countdownText.text = countdownEndedStr;
+					viewLayer.ModifyStrOfCountdownText(countdownEndedStr);
 					break;
 				} else {
-					countdownText.text = Mathf.Ceil(startGameTime).ToString();
+					viewLayer.ModifyStrOfCountdownText(startGameTime);
 					yield return null;
 				}
 			}
 
 			yield return WaitHelper.GetWaitForSeconds(startGameDelay);
 
-			countdownText.gameObject.SetActive(false);
+			viewLayer.ActivateDeactivateCountdownTextGameObj(false);
 			StartGame();
 		}
 

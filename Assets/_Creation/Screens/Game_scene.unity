@@ -529,9 +529,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b42281012aa362c4d9b7623d67aa463b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  viewLayer: {fileID: 2049202499}
   sceneAsset: {fileID: 102900000, guid: 7c95d74655a7c71448f24c40b479a392, type: 3}
   sceneName: Splash_scene
-  countdownText: {fileID: 88717127}
   startGameCountdownTime: 3
   countdownEndedStr: GO!
   startGameDelay: 0.7
@@ -578,6 +578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8926798135bed0c4f8af9deebace7163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  countdownText: {fileID: 88717127}
 --- !u!223 &2023829666977307840
 Canvas:
   m_ObjectHideFlags: 0
