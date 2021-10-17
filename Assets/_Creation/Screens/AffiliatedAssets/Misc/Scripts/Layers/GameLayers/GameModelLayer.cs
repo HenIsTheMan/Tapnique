@@ -78,11 +78,10 @@ namespace Genesis.Creation {
 				sceneName = sceneAsset.name;
 			}
 
-			if(gameViewLayer != null) {
-				gameViewLayer.ModifyStrOfGameTimeText(totalGameTime);
-				gameViewLayer.ModifyStrOfPtsText(initialPts);
-				gameViewLayer.ModifyStrOfRoundTimeText(totalRoundTime);
-			}
+			gameViewLayer = GameViewLayer.GlobalObj;
+			gameViewLayer.ModifyStrOfGameTimeText(totalGameTime);
+			gameViewLayer.ModifyStrOfPtsText(initialPts);
+			gameViewLayer.ModifyStrOfRoundTimeText(totalRoundTime);
 
 			EditorSceneManager.SaveScene(gameObject.scene);
 		}
