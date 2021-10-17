@@ -6,11 +6,6 @@ namespace Genesis.Wisdom {
 	{
 		internal static T GlobalObj {
 			get {
-				if(IsQuitting) {
-					Debug.LogError(nameof(IsQuitting), null);
-					return null;
-				}
-
 				lock(myLock) {
 					if(globalObj != null) {
 						return globalObj;
@@ -27,11 +22,6 @@ namespace Genesis.Wisdom {
 			}
 		}
 
-		internal static bool IsQuitting {
-			get;
-			private set;
-		}
-
 		private protected virtual void OnValidate() {
 			if(Application.isPlaying) {
 				lock(myLock) {
@@ -40,10 +30,6 @@ namespace Genesis.Wisdom {
 					}
 				}
 			}
-		}
-
-		private void OnApplicationQuit() {
-			IsQuitting = true;
 		}
 
 		private static readonly object myLock = new object();
