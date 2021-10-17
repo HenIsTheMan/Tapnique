@@ -89,7 +89,7 @@ namespace Genesis.Creation {
 			Task myTask = new Task(async () => {
 				await Task.Delay(14); //Just in case
 
-				if(gameObject != null) {
+				if(this != null) {
 					EditorSceneManager.SaveScene(gameObject.scene);
 				}
 			});
