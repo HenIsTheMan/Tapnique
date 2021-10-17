@@ -1,10 +1,11 @@
+using Genesis.Wisdom;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Genesis.Creation {
-    internal sealed class GameControllerLayer: MonoBehaviour {
-		internal static void ConfigGameButton(GameObject gameButtonGameObj, GameModelLayer gameModelLayer) {
+    internal sealed class GameControllerLayer: Singleton<GameControllerLayer> {
+		internal void ConfigGameButton(GameObject gameButtonGameObj) {
 			GameButtonLink gameButtonLink = gameButtonGameObj.GetComponent<GameButtonLink>();
 
 			EventTrigger eventTrigger = gameButtonLink.MyEventTrigger;
@@ -14,36 +15,36 @@ namespace Genesis.Creation {
 				eventID = EventTriggerType.PointerDown
 			};
 			ptrDownEntry.callback.AddListener((_) => {
-				OnPtrDownHandler();
+				OnPtrDownHandler(gameButtonLink);
 			});
 
 			EventTrigger.Entry ptrUpEntry = new EventTrigger.Entry {
 				eventID = EventTriggerType.PointerUp
 			};
 			ptrUpEntry.callback.AddListener((_) => {
-				OnPtrUpHandler();
+				OnPtrUpHandler(gameButtonLink);
 			});
 
 			eventTrigger.triggers.Add(ptrDownEntry);
 			eventTrigger.triggers.Add(ptrUpEntry);
+		}
 
-			void OnPtrDownHandler() {
-				gameButtonLink.PtrUpAnim.StopAnim();
-				gameButtonLink.PtrDownAnim.StartAnim(true);
-			}
+		private void OnPtrDownHandler(GameButtonLink gameButtonLink) {
+			gameButtonLink.PtrUpAnim.StopAnim();
+			gameButtonLink.PtrDownAnim.StartAnim(true);
+		}
 
-			void OnPtrUpHandler() {
-				gameButtonLink.PtrDownAnim.StopAnim();
-				gameButtonLink.PtrUpAnim.StartAnim(true);
+		private void OnPtrUpHandler(GameButtonLink gameButtonLink) {
+			gameButtonLink.PtrDownAnim.StopAnim();
+			gameButtonLink.PtrUpAnim.StartAnim(true);
 
-				_ = gameModelLayer.StartCoroutine(nameof(PtrUpOverCoroutine));
-			}
+			_ = StartCoroutine(PtrUpOverCoroutine(gameButtonLink));
+		}
 
-			IEnumerator PtrUpOverCoroutine() {
-				yield return new WaitForSeconds(gameButtonLink.PtrUpAnim.animDuration);
+		private IEnumerator PtrUpOverCoroutine(GameButtonLink gameButtonLink) {
+			yield return new WaitForSeconds(gameButtonLink.PtrUpAnim.animDuration);
 
-				gameModelLayer.ButtonOnClick(gameButtonGameObj);
-			}
+			GameModelLayer.GlobalObj.ButtonOnClick(gameButtonLink.gameObject);
 		}
 	}
 }

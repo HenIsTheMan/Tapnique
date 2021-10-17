@@ -12,12 +12,11 @@ using UnityEditor;
 #endif
 
 namespace Genesis.Creation {
-    internal sealed class GameModelLayer: MonoBehaviour {
+    internal sealed class GameModelLayer: Singleton<GameModelLayer> {
 		internal void ButtonOnClick(GameObject gameButtonGameObj) {
 			gameButtonPool.DeactivateObj(gameButtonGameObj);
 		}
 
-		[SerializeField]
 		private GameViewLayer gameViewLayer;
 
         #if UNITY_EDITOR
@@ -58,7 +57,9 @@ namespace Genesis.Creation {
 
 		#if UNITY_EDITOR
 
-		private void OnValidate() {
+		private protected override void OnValidate() {
+			base.OnValidate();
+
 			if(EditorApplication.isPlayingOrWillChangePlaymode) {
 				return;
 			}
@@ -77,6 +78,8 @@ namespace Genesis.Creation {
 		#endif
 
 		private void Awake() {
+			gameViewLayer = GameViewLayer.GlobalObj;
+
 			WaitHelper.AddWaitForSeconds(startGameDelay);
 
 			gameButtonPool.InitMe(
@@ -169,7 +172,7 @@ namespace Genesis.Creation {
 						0.0f
 					);
 
-					GameControllerLayer.ConfigGameButton(gameButtonGameObj, this);
+					GameControllerLayer.GlobalObj.ConfigGameButton(gameButtonGameObj);
 				}
 
 				yield return new WaitWhile(() => {

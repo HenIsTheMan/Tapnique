@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Genesis.Wisdom;
 
 #if UNITY_EDITOR
 
@@ -9,7 +10,7 @@ using UnityEditor;
 #endif
 
 namespace Genesis.Creation {
-    internal sealed class GameViewLayer: MonoBehaviour {
+    internal sealed class GameViewLayer: Singleton<GameViewLayer> {
         [SerializeField]
         private TMP_Text countdownText;
 

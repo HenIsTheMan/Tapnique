@@ -696,7 +696,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b42281012aa362c4d9b7623d67aa463b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameViewLayer: {fileID: 2049202499}
   sceneAsset: {fileID: 102900000, guid: 7c95d74655a7c71448f24c40b479a392, type: 3}
   sceneName: Splash_scene
   startGameCountdownTime: 3
