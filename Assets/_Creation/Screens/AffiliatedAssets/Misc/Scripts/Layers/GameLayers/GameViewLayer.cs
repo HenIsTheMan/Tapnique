@@ -26,6 +26,12 @@ namespace Genesis.Creation {
         [SerializeField]
         private int roundTimePrecision;
 
+        [SerializeField]
+        private Canvas gameCamCanvas;
+
+        [SerializeField]
+        private Canvas gameEndCamCanvas;
+
         private string roundTimeNumericFormatStr;
 
         internal void ActivateDeactivateCountdownTextGameObj(bool isActivation) {
@@ -94,10 +100,24 @@ namespace Genesis.Creation {
             );
         }
 
+        internal void ShowGameEndView() {
+            gameCamCanvas.gameObject.SetActive(false);
+            gameEndCamCanvas.gameObject.SetActive(true);
+        }
+
+        #if UNITY_EDITOR
+
         private protected override void OnValidate() {
             base.OnValidate();
+
+            if(EditorApplication.isPlayingOrWillChangePlaymode) {
+                return;
+            }
+
             Awake();
         }
+
+        #endif
 
         private void Awake() {
             roundTimeNumericFormatStr = 'F' + roundTimePrecision.ToString();
