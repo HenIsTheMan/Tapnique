@@ -131,24 +131,31 @@ namespace Genesis.Creation {
 		}
 
 		private IEnumerator GameLogicCoroutine() {
+			float halfScreenWidth = Screen.width * 0.5f;
+			float halfScreenHeight = Screen.height * 0.5f;
+
 			while(true) {
 				int amtOfButtonsToSpawn = Random.Range(1, 4);
 				List<GameObject> activatedButtonGameObjs = new List<GameObject>(amtOfButtonsToSpawn);
 				GameObject buttonGameObj;
 				RectTransform myRectTransform;
+				float xOffset, yOffset;
 
 				for(int i = 0; i < amtOfButtonsToSpawn; ++i) {
 					buttonGameObj = buttonPool.ActivateObj();
 					myRectTransform = (RectTransform)buttonGameObj.transform;
 
+					xOffset = myRectTransform.sizeDelta.x * myRectTransform.localScale.x * 0.5f;
+					yOffset = myRectTransform.sizeDelta.y * myRectTransform.localScale.y * 0.5f;
+
 					myRectTransform.anchoredPosition = new Vector3(
 						Random.Range(
-							0.0f + myRectTransform.sizeDelta.x * 0.5f,
-							Screen.width - myRectTransform.sizeDelta.x * 0.5f
+							-halfScreenWidth + xOffset,
+							halfScreenWidth - xOffset
 						),
 						Random.Range(
-							0.0f + myRectTransform.sizeDelta.y * 0.5f,
-							Screen.height - myRectTransform.sizeDelta.y * 0.5f
+							-halfScreenHeight + yOffset,
+							halfScreenHeight - yOffset
 						),
 						0.0f
 					);
