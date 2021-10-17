@@ -19,12 +19,6 @@ namespace Genesis.Creation {
 		}
 
 		[field: SerializeField]
-		internal Transform ParentTransform {
-			get;
-			private set;
-		}
-
-		[field: SerializeField]
 		internal string InstanceName {
 			get;
 			private set;
