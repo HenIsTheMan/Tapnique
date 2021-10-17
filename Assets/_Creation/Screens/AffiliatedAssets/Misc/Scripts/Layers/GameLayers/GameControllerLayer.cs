@@ -4,7 +4,9 @@ using UnityEngine.EventSystems;
 namespace Genesis.Creation {
     internal sealed class GameControllerLayer: MonoBehaviour {
 		internal static void ConfigGameButton(GameObject gameButtonGameObj) {
-			EventTrigger eventTrigger = gameButtonGameObj.GetComponent<EventTrigger>();
+			GameButtonLink gameButtonLink = gameButtonGameObj.GetComponent<GameButtonLink>();
+
+			EventTrigger eventTrigger = gameButtonLink.MyEventTrigger;
 			eventTrigger.triggers.Clear();
 
 			EventTrigger.Entry ptrDownEntry = new EventTrigger.Entry {
@@ -25,11 +27,11 @@ namespace Genesis.Creation {
 			eventTrigger.triggers.Add(ptrUpEntry);
 
 			void OnPtrDownHandler() {
-				print("hereDown");
+				gameButtonLink.PtrDownAnim.StartAnim(true);
 			}
 
 			void OnPtrUpHandler() {
-				print("hereUp");
+				gameButtonLink.PtrUpAnim.StartAnim(true);
 			}
 		}
 	}
