@@ -17,6 +17,17 @@ namespace Genesis.Creation {
         [SerializeField]
         private TMP_Text gameTimeText;
 
+        [SerializeField]
+        private TMP_Text ptsText;
+
+        [SerializeField]
+        private TMP_Text roundTimeText;
+
+        [SerializeField]
+        private int roundTimePrecision;
+
+        private string roundTimeNumericFormatStr;
+
         internal void ActivateDeactivateCountdownTextGameObj(bool isActivation) {
             countdownText.gameObject.SetActive(isActivation);
         }
@@ -54,6 +65,14 @@ namespace Genesis.Creation {
             #endif
         }
 
+        internal void ModifyStrOfPtsText(int val) {
+            ptsText.text = val + "\nPoints";
+        }
+
+        internal void ModifyStrOfRoundTimeText(float val) {
+            roundTimeText.text = val.ToString(roundTimeNumericFormatStr);
+        }
+
         internal void ColorizeGameButton(GameObject gameButtonGameObj) {
             gameButtonGameObj.GetComponent<Image>().color = Color.HSVToRGB(
                 Random.Range(0.0f, 1.0f),
@@ -61,6 +80,10 @@ namespace Genesis.Creation {
                 Random.Range(0.8f, 0.95f),
                 true
             );
+        }
+
+        private void Awake() {
+            roundTimeNumericFormatStr = 'F' + roundTimePrecision.ToString();
         }
     }
 }

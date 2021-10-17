@@ -47,6 +47,16 @@ namespace Genesis.Creation {
 		private float gameTime;
 
 		[SerializeField]
+		private int initialPts;
+
+		private int pts;
+
+		[SerializeField]
+		private float totalRoundTime;
+
+		private float roundTime;
+
+		[SerializeField]
 		private ObjPool gameButtonPool;
 
 		[SerializeField]
@@ -70,6 +80,8 @@ namespace Genesis.Creation {
 
 			if(gameViewLayer != null) {
 				gameViewLayer.ModifyStrOfGameTimeText(totalGameTime);
+				gameViewLayer.ModifyStrOfPtsText(initialPts);
+				gameViewLayer.ModifyStrOfRoundTimeText(totalRoundTime);
 			}
 
 			EditorSceneManager.SaveScene(gameObject.scene);
@@ -121,6 +133,9 @@ namespace Genesis.Creation {
 
 		private void StartGame() {
 			gameTime = totalGameTime;
+			pts = initialPts;
+			roundTime = totalRoundTime;
+
 			_ = StartCoroutine(nameof(GameTimeCoroutine));
 			_ = StartCoroutine(nameof(GameLogicCoroutine));
 		}
@@ -146,6 +161,11 @@ namespace Genesis.Creation {
 			float halfScreenHeight = Screen.height * 0.5f;
 
 			while(true) {
+				roundTime -= Time.deltaTime;
+				roundTime = Mathf.Max(0.0f, roundTime);
+
+				gameViewLayer.ModifyStrOfRoundTimeText(roundTime);
+
 				int amtOfButtonsToSpawn = Random.Range(1, 4);
 				GameObject gameButtonGameObj;
 				RectTransform myRectTransform;
@@ -178,10 +198,14 @@ namespace Genesis.Creation {
 				yield return new WaitWhile(() => {
 					return gameButtonPool.ActiveObjs.Any((gameObj) => {
 						return gameObj.activeInHierarchy;
-					});
+					}) && roundTime > 0.0f;
 				});
 
+				pts += (int)Mathf.Ceil(300.0f - roundTime * 100.0f);
+				gameViewLayer.ModifyStrOfPtsText(pts);
+
 				gameButtonPool.DeactivateAllObjs();
+				roundTime = totalRoundTime;
 			}
 		}
 	}
