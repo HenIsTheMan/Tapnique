@@ -36,6 +36,15 @@ namespace Genesis.Creation {
 
 		private float startGameTime;
 
+		[SerializeField]
+		private ObjPool objPool;
+
+		[SerializeField]
+		private Transform objParentTransform;
+
+		[SerializeField]
+		private ObjPoolData objPoolData;
+
 		#if UNITY_EDITOR
 
 		private void OnValidate() {
@@ -52,6 +61,13 @@ namespace Genesis.Creation {
 
 		private void Awake() {
 			WaitHelper.AddWaitForSeconds(startGameDelay);
+
+			objPool.InitMe(
+				objPoolData.Size,
+				objPoolData.Prefab,
+				objParentTransform,
+				objPoolData.InstanceName
+			);
 
 			_ = StartCoroutine(nameof(StartGameCoroutine));
 		}
