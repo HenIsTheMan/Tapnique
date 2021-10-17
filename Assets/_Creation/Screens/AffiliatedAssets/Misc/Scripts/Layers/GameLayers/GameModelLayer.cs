@@ -141,7 +141,6 @@ namespace Genesis.Creation {
 
 			while(true) {
 				int amtOfButtonsToSpawn = Random.Range(1, 4);
-				List<GameObject> activatedButtonGameObjs = new List<GameObject>(amtOfButtonsToSpawn);
 				GameObject gameButtonGameObj;
 				RectTransform myRectTransform;
 				float xOffset, yOffset;
@@ -167,11 +166,11 @@ namespace Genesis.Creation {
 						0.0f
 					);
 
-					activatedButtonGameObjs.Add(gameButtonGameObj);
+					GameControllerLayer.ConfigGameButton(gameButtonGameObj);
 				}
 
 				yield return new WaitWhile(() => {
-					return activatedButtonGameObjs.Any((gameObj) => {
+					return gameButtonPool.ActiveObjs.Any((gameObj) => {
 						return gameObj.activeInHierarchy;
 					});
 				});
