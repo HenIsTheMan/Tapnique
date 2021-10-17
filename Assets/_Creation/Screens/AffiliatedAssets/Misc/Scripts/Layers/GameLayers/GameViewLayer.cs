@@ -113,8 +113,8 @@ namespace Genesis.Creation {
             #endif
         }
 
-        internal void ColorizeGameButton(GameObject gameButtonGameObj) {
-            gameButtonGameObj.GetComponent<Image>().color = Color.HSVToRGB(
+        internal void ColorizeGameButton(GameButtonLink gameButtonLink) {
+            gameButtonLink.Img.color = Color.HSVToRGB(
                 Random.Range(0.0f, 1.0f),
                 Random.Range(0.7f, 0.9f),
                 Random.Range(0.8f, 0.95f),

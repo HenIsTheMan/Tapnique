@@ -181,12 +181,15 @@ namespace Genesis.Creation {
 			while(true) {
 				int amtOfButtonsToSpawn = Random.Range(1, 4);
 				GameObject gameButtonGameObj;
+				GameButtonLink gameButtonLink;
 				RectTransform myRectTransform;
 				float xOffset, yOffset;
 
 				for(int i = 0; i < amtOfButtonsToSpawn; ++i) {
 					gameButtonGameObj = gameButtonPool.ActivateObj();
-					gameViewLayer.ColorizeGameButton(gameButtonGameObj);
+					gameButtonLink = gameButtonGameObj.GetComponent<GameButtonLink>();
+
+					gameViewLayer.ColorizeGameButton(gameButtonLink);
 
 					myRectTransform = (RectTransform)gameButtonGameObj.transform;
 
@@ -205,7 +208,7 @@ namespace Genesis.Creation {
 						0.0f
 					);
 
-					GameControllerLayer.GlobalObj.ConfigGameButton(gameButtonGameObj);
+					GameControllerLayer.GlobalObj.ConfigGameButton(gameButtonLink);
 				}
 
 				while(gameButtonPool.ActiveObjs.Any((gameObj) => {

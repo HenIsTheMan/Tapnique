@@ -5,9 +5,7 @@ using UnityEngine.EventSystems;
 
 namespace Genesis.Creation {
     internal sealed class GameControllerLayer: Singleton<GameControllerLayer> {
-		internal void ConfigGameButton(GameObject gameButtonGameObj) {
-			GameButtonLink gameButtonLink = gameButtonGameObj.GetComponent<GameButtonLink>();
-
+		internal void ConfigGameButton(GameButtonLink gameButtonLink) {
 			EventTrigger eventTrigger = gameButtonLink.MyEventTrigger;
 			eventTrigger.triggers.Clear();
 
