@@ -67,6 +67,7 @@ namespace Genesis.Creation {
 
 		#if UNITY_EDITOR
 
+		[ContextMenu("Refresh")]
 		private protected override void OnValidate() {
 			base.OnValidate();
 

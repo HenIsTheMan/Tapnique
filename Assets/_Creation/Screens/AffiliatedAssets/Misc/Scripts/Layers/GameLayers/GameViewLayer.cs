@@ -70,7 +70,7 @@ namespace Genesis.Creation {
         }
 
         internal void ModifyStrOfRoundTimeText(float val) {
-            roundTimeText.text = val.ToString(roundTimeNumericFormatStr) + "\nSeconds";
+            roundTimeText.text = val.ToString(roundTimeNumericFormatStr) + " s";
         }
 
         internal void ColorizeGameButton(GameObject gameButtonGameObj) {
