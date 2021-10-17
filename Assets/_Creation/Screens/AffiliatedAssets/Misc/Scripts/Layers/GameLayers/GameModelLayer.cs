@@ -4,6 +4,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 #if UNITY_EDITOR
 
@@ -74,6 +75,12 @@ namespace Genesis.Creation {
 
 		[SerializeField]
 		private float maxInitialVelY;
+
+		[SerializeField]
+		private float xVelChange;
+
+		[SerializeField]
+		private float yVelChange;
 
 		#if UNITY_EDITOR
 
@@ -193,7 +200,10 @@ namespace Genesis.Creation {
 			while(true) {
 				int amtOfButtonsToSpawn = Random.Range(1, 4);
 				GameObject gameButtonGameObj;
+
 				GameButtonLink gameButtonLink;
+				List<GameButtonLink> gameButtonLinkList = new List<GameButtonLink>(amtOfButtonsToSpawn);
+
 				RectTransform myRectTransform;
 				float xOffset, yOffset;
 
@@ -227,11 +237,21 @@ namespace Genesis.Creation {
 					);
 
 					GameControllerLayer.GlobalObj.ConfigGameButton(gameButtonLink);
+
+					gameButtonLinkList.Add(gameButtonLink);
 				}
 
 				while(gameButtonPool.ActiveObjs.Any((gameObj) => {
 					return gameObj.activeInHierarchy;
 				}) && roundTime > 0.0f) {
+					gameButtonLinkList.ForEach((gameButtonLink) => {
+						gameButtonLink.MyRigidbody.velocity += new Vector3(
+							xVelChange,
+							yVelChange,
+							0.0f
+						) * RateOfChange.EaseInSine(1.0f - gameTime / totalGameTime) * Time.deltaTime;
+					});
+
 					roundTime -= Time.deltaTime;
 					roundTime = Mathf.Max(0.0f, roundTime);
 
