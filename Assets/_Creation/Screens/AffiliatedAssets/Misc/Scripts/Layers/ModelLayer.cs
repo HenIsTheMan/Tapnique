@@ -27,7 +27,7 @@ namespace Genesis.Creation {
 		private TMP_Text countdownText;
 
 		[SerializeField]
-		private float startGameCountdown;
+		private float startGameCountdownTime;
 
 		[SerializeField]
 		private string countdownEndedStr;
@@ -63,12 +63,15 @@ namespace Genesis.Creation {
 			});
 
 			countdownText.gameObject.SetActive(true);
-			startGameTime = startGameCountdown;
+			startGameTime = startGameCountdownTime;
 
 			while(startGameTime > 0.0f) {
 				startGameTime -= Time.deltaTime;
 				startGameTime = Mathf.Max(0.0f, startGameTime);
+
 				countdownText.text = ((int)Mathf.Round(startGameTime)).ToString();
+
+				yield return null;
 			}
 
 			countdownText.text = countdownEndedStr;
