@@ -435,6 +435,9 @@ MonoBehaviour:
     - <Mtl>k__BackingField: {fileID: 2100000, guid: 9f48f919a1cd94143bd8ae3a074e0238,
         type: 2}
       <MyMtlType>k__BackingField: 1
+    - <Mtl>k__BackingField: {fileID: 2100000, guid: 1e03c7743c6667342ac3f8c238e00eeb,
+        type: 2}
+      <MyMtlType>k__BackingField: 1
   - <MtlSetArr>k__BackingField:
     - <Mtl>k__BackingField: {fileID: 2100000, guid: 261a3e9958447e84ba697483c6ff84e4,
         type: 2}
