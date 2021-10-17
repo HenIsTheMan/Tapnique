@@ -35,9 +35,6 @@ namespace Genesis.Creation {
 		private float startGameCountdownTime;
 
 		[SerializeField]
-		private string countdownEndedStr;
-
-		[SerializeField]
 		private float startGameDelay;
 
 		private float startGameTime;
@@ -127,7 +124,7 @@ namespace Genesis.Creation {
 				startGameTime = Mathf.Max(0.0f, startGameTime);
 
 				if(Mathf.Approximately(startGameTime, 0.0f)) {
-					gameViewLayer.ModifyStrOfCountdownText(countdownEndedStr);
+					gameViewLayer.ShowCountdownEndedStr();
 					break;
 				} else {
 					gameViewLayer.ModifyStrOfCountdownText(startGameTime);
@@ -164,6 +161,8 @@ namespace Genesis.Creation {
 
 		private void EndGame() {
 			StopCoroutine(nameof(GameLogicCoroutine));
+
+			gameViewLayer.ShowGameEndView(true, 4, 4); //??
 		}
 
 		private IEnumerator GameLogicCoroutine() {

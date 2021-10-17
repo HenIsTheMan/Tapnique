@@ -15,6 +15,9 @@ namespace Genesis.Creation {
         private TMP_Text countdownText;
 
         [SerializeField]
+        private string countdownEndedStr;
+
+        [SerializeField]
         private TMP_Text gameTimeText;
 
         [SerializeField]
@@ -36,12 +39,24 @@ namespace Genesis.Creation {
         [SerializeField]
         private Canvas gameEndCamCanvas;
 
+        [SerializeField]
+        private TMP_Text newHighScoreText;
+
+        [SerializeField]
+        private TMP_Text scoreText;
+
+        [SerializeField]
+        private TMP_Text highScoreText;
+
+        [SerializeField]
+        private string newHighScoreStr;
+
         internal void ActivateDeactivateCountdownTextGameObj(bool isActivation) {
             countdownText.gameObject.SetActive(isActivation);
         }
 
-        internal void ModifyStrOfCountdownText(string str) {
-            countdownText.text = str;
+        internal void ShowCountdownEndedStr() {
+            countdownText.text = countdownEndedStr;
         }
 
         internal void ModifyStrOfCountdownText(float val) {
@@ -102,9 +117,16 @@ namespace Genesis.Creation {
             );
         }
 
-        internal void ShowGameEndView() {
+        internal void ShowGameEndView(bool hadGottenHighScore, int score, int highScore) {
             gameCamCanvas.gameObject.SetActive(false);
             gameEndCamCanvas.gameObject.SetActive(true);
+
+            if(hadGottenHighScore) {
+                newHighScoreText.gameObject.SetActive(true);
+            }
+
+            scoreText.text = "Score: " + score.ToString();
+            highScoreText.text = "HighScore: " + highScore.ToString();
         }
 
         #if UNITY_EDITOR
@@ -114,6 +136,10 @@ namespace Genesis.Creation {
 
             if(EditorApplication.isPlayingOrWillChangePlaymode) {
                 return;
+            }
+
+            if(newHighScoreText != null) {
+                newHighScoreText.text = newHighScoreStr;
             }
 
             Awake();
