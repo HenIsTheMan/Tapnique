@@ -698,9 +698,9 @@ MonoBehaviour:
   countdownEndedStr: GO!
   startGameDelay: 0.7
   totalGameTime: 15
-  buttonPool: {fileID: 2090462671}
-  buttonParentTransform: {fileID: 2090462670}
-  buttonPoolData: {fileID: 11400000, guid: 63b04c31942e314489acb4a8afbf2d91, type: 2}
+  gameButtonPool: {fileID: 2090462671}
+  gameButtonParentTransform: {fileID: 2090462670}
+  gameButtonPoolData: {fileID: 11400000, guid: 63b04c31942e314489acb4a8afbf2d91, type: 2}
 --- !u!1 &2049202497
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,7 +757,7 @@ GameObject:
   - component: {fileID: 2090462670}
   - component: {fileID: 2090462671}
   m_Layer: 5
-  m_Name: ButtonPool
+  m_Name: GameButtonPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

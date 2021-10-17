@@ -44,13 +44,13 @@ namespace Genesis.Creation {
 		private float gameTime;
 
 		[SerializeField]
-		private ObjPool buttonPool;
+		private ObjPool gameButtonPool;
 
 		[SerializeField]
-		private Transform buttonParentTransform;
+		private Transform gameButtonParentTransform;
 
 		[SerializeField]
-		private ObjPoolData buttonPoolData;
+		private ObjPoolData gameButtonPoolData;
 
 		#if UNITY_EDITOR
 
@@ -69,11 +69,11 @@ namespace Genesis.Creation {
 		private void Awake() {
 			WaitHelper.AddWaitForSeconds(startGameDelay);
 
-			buttonPool.InitMe(
-				buttonPoolData.Size,
-				buttonPoolData.Prefab,
-				buttonParentTransform,
-				buttonPoolData.InstanceName
+			gameButtonPool.InitMe(
+				gameButtonPoolData.Size,
+				gameButtonPoolData.Prefab,
+				gameButtonParentTransform,
+				gameButtonPoolData.InstanceName
 			);
 
 			gameViewLayer.ModifyStrOfGameTimeText(totalGameTime);
@@ -137,13 +137,13 @@ namespace Genesis.Creation {
 			while(true) {
 				int amtOfButtonsToSpawn = Random.Range(1, 4);
 				List<GameObject> activatedButtonGameObjs = new List<GameObject>(amtOfButtonsToSpawn);
-				GameObject buttonGameObj;
+				GameObject gameButtonGameObj;
 				RectTransform myRectTransform;
 				float xOffset, yOffset;
 
 				for(int i = 0; i < amtOfButtonsToSpawn; ++i) {
-					buttonGameObj = buttonPool.ActivateObj();
-					myRectTransform = (RectTransform)buttonGameObj.transform;
+					gameButtonGameObj = gameButtonPool.ActivateObj();
+					myRectTransform = (RectTransform)gameButtonGameObj.transform;
 
 					xOffset = myRectTransform.sizeDelta.x * myRectTransform.localScale.x * 0.5f;
 					yOffset = myRectTransform.sizeDelta.y * myRectTransform.localScale.y * 0.5f;
@@ -160,7 +160,7 @@ namespace Genesis.Creation {
 						0.0f
 					);
 
-					activatedButtonGameObjs.Add(buttonGameObj);
+					activatedButtonGameObjs.Add(gameButtonGameObj);
 				}
 
 				yield return new WaitWhile(() => {
