@@ -63,6 +63,18 @@ namespace Genesis.Creation {
 		[SerializeField]
 		private ObjPoolData gameButtonPoolData;
 
+		[SerializeField]
+		private float minInitialVelX;
+
+		[SerializeField]
+		private float maxInitialVelX;
+
+		[SerializeField]
+		private float minInitialVelY;
+
+		[SerializeField]
+		private float maxInitialVelY;
+
 		#if UNITY_EDITOR
 
 		[ContextMenu("Refresh")]
@@ -190,6 +202,12 @@ namespace Genesis.Creation {
 					gameButtonLink = gameButtonGameObj.GetComponent<GameButtonLink>();
 
 					gameViewLayer.ColorizeGameButton(gameButtonLink);
+
+					gameButtonLink.MyRigidbody.velocity = new Vector3(
+						Random.Range(minInitialVelX, maxInitialVelX),
+						Random.Range(minInitialVelY, maxInitialVelY),
+						0.0f
+					);
 
 					myRectTransform = (RectTransform)gameButtonGameObj.transform;
 
