@@ -67,10 +67,22 @@ namespace Genesis.Creation {
 
         internal void ModifyStrOfPtsText(int val) {
             ptsText.text = val + "\nPoints";
+
+            #if UNITY_EDITOR
+
+            EditorUtility.SetDirty(ptsText);
+
+            #endif
         }
 
         internal void ModifyStrOfRoundTimeText(float val) {
             roundTimeText.text = val.ToString(roundTimeNumericFormatStr) + " s";
+
+            #if UNITY_EDITOR
+
+            EditorUtility.SetDirty(roundTimeText);
+
+            #endif
         }
 
         internal void ColorizeGameButton(GameObject gameButtonGameObj) {

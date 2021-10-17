@@ -3,6 +3,7 @@ using Genesis.Wisdom;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using System.Threading.Tasks;
 
 #if UNITY_EDITOR
 
@@ -79,18 +80,20 @@ namespace Genesis.Creation {
 				sceneName = sceneAsset.name;
 			}
 
-			gameViewLayer = GameViewLayer.GlobalObj;
-			gameViewLayer.ModifyStrOfGameTimeText(totalGameTime);
-			gameViewLayer.ModifyStrOfPtsText(initialPts);
-			gameViewLayer.ModifyStrOfRoundTimeText(totalRoundTime);
+			Init();
 
-			EditorSceneManager.SaveScene(gameObject.scene);
+			Task myTask = new Task(async () => {
+				await Task.Delay(14);
+				EditorSceneManager.SaveScene(gameObject.scene);
+			});
+
+			myTask.RunSynchronously();
 		}
 
 		#endif
 
 		private void Awake() {
-			gameViewLayer = GameViewLayer.GlobalObj;
+			Init();
 
 			WaitHelper.AddWaitForSeconds(startGameDelay);
 
@@ -102,6 +105,13 @@ namespace Genesis.Creation {
 			);
 
 			_ = StartCoroutine(nameof(StartGameCoroutine));
+		}
+
+		private void Init() {
+			gameViewLayer = GameViewLayer.GlobalObj;
+			gameViewLayer.ModifyStrOfGameTimeText(totalGameTime);
+			gameViewLayer.ModifyStrOfPtsText(initialPts);
+			gameViewLayer.ModifyStrOfRoundTimeText(totalRoundTime);
 		}
 
 		private IEnumerator StartGameCoroutine() {

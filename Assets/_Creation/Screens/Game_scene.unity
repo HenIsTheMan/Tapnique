@@ -343,7 +343,7 @@ PrefabInstance:
     - target: {fileID: 7142958120884233650, guid: ae014ed3754c73e418aada383e15cc02,
         type: 3}
       propertyPath: m_text
-      value: 00:15
+      value: 3.00 s
       objectReference: {fileID: 0}
     - target: {fileID: 7142958120884233650, guid: ae014ed3754c73e418aada383e15cc02,
         type: 3}
@@ -841,6 +841,13 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PtsText
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142958120884233650, guid: ae014ed3754c73e418aada383e15cc02,
+        type: 3}
+      propertyPath: m_text
+      value: '0
+
+        Points'
       objectReference: {fileID: 0}
     - target: {fileID: 7142958120884233650, guid: ae014ed3754c73e418aada383e15cc02,
         type: 3}
