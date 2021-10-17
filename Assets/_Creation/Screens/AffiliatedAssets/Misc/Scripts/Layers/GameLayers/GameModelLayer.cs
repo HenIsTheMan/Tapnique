@@ -2,7 +2,6 @@ using UnityEngine;
 using Genesis.Wisdom;
 using System.Collections;
 using UnityEngine.SceneManagement;
-using System.Collections.Generic;
 using System.Linq;
 
 #if UNITY_EDITOR
@@ -14,6 +13,10 @@ using UnityEditor;
 
 namespace Genesis.Creation {
     internal sealed class GameModelLayer: MonoBehaviour {
+		internal void ButtonOnClick(GameObject gameButtonGameObj) {
+			gameButtonPool.DeactivateObj(gameButtonGameObj);
+		}
+
 		[SerializeField]
 		private GameViewLayer gameViewLayer;
 
@@ -166,7 +169,7 @@ namespace Genesis.Creation {
 						0.0f
 					);
 
-					GameControllerLayer.ConfigGameButton(gameButtonGameObj);
+					GameControllerLayer.ConfigGameButton(gameButtonGameObj, this);
 				}
 
 				yield return new WaitWhile(() => {

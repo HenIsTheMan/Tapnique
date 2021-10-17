@@ -21,7 +21,7 @@ namespace Genesis.Wisdom {
 
 		[Min(0.0f)]
 		[SerializeField]
-		protected internal float animDuration;
+		internal float animDuration;
 
 		protected internal float AnimTime {
 			get;

@@ -1,9 +1,10 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Genesis.Creation {
     internal sealed class GameControllerLayer: MonoBehaviour {
-		internal static void ConfigGameButton(GameObject gameButtonGameObj) {
+		internal static void ConfigGameButton(GameObject gameButtonGameObj, GameModelLayer gameModelLayer) {
 			GameButtonLink gameButtonLink = gameButtonGameObj.GetComponent<GameButtonLink>();
 
 			EventTrigger eventTrigger = gameButtonLink.MyEventTrigger;
@@ -34,6 +35,14 @@ namespace Genesis.Creation {
 			void OnPtrUpHandler() {
 				gameButtonLink.PtrDownAnim.StopAnim();
 				gameButtonLink.PtrUpAnim.StartAnim(true);
+
+				_ = gameModelLayer.StartCoroutine(nameof(PtrUpOverCoroutine));
+			}
+
+			IEnumerator PtrUpOverCoroutine() {
+				yield return new WaitForSeconds(gameButtonLink.PtrUpAnim.animDuration);
+
+				gameModelLayer.ButtonOnClick(gameButtonGameObj);
 			}
 		}
 	}
