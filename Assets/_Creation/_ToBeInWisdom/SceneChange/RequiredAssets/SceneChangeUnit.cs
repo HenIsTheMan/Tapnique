@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Genesis.Wisdom;
 using System.Collections;
-using System;
 
 #if UNITY_EDITOR
 
