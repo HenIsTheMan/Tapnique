@@ -185,8 +185,8 @@ namespace Genesis.Creation {
 		}
 
 		private IEnumerator GameLogicCoroutine() {
-			float halfScreenWidth = Screen.width * 0.5f;
-			float halfScreenHeight = Screen.height * 0.5f;
+			float halfScreenWidth = Screen.currentResolution.width * 0.5f;
+			float halfScreenHeight = Screen.currentResolution.height * 0.5f;
 
 			while(true) {
 				int amtOfButtonsToSpawn = Random.Range(1, 4);
