@@ -69,12 +69,14 @@ namespace Genesis.Creation {
 				startGameTime -= Time.deltaTime;
 				startGameTime = Mathf.Max(0.0f, startGameTime);
 
-				countdownText.text = ((int)Mathf.Round(startGameTime)).ToString();
-
-				yield return null;
+				if(Mathf.Approximately(startGameTime, 0.0f)) {
+					countdownText.text = countdownEndedStr;
+					break;
+				} else {
+					countdownText.text = Mathf.Ceil(startGameTime).ToString();
+					yield return null;
+				}
 			}
-
-			countdownText.text = countdownEndedStr;
 
 			yield return WaitHelper.GetWaitForSeconds(startGameDelay);
 
