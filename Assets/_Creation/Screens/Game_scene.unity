@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 495337851}
   - component: {fileID: 495337852}
   m_Layer: 0
-  m_Name: ControllerLayer
+  m_Name: GameControllerLayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -333,7 +333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1117311153}
   m_Layer: 0
-  m_Name: Layers
+  m_Name: GameLayers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -497,7 +497,7 @@ GameObject:
   - component: {fileID: 1759186825}
   - component: {fileID: 1759186826}
   m_Layer: 0
-  m_Name: ModelLayer
+  m_Name: GameModelLayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -529,7 +529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b42281012aa362c4d9b7623d67aa463b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewLayer: {fileID: 2049202499}
+  gameViewLayer: {fileID: 2049202499}
   sceneAsset: {fileID: 102900000, guid: 7c95d74655a7c71448f24c40b479a392, type: 3}
   sceneName: Splash_scene
   startGameCountdownTime: 3
@@ -546,7 +546,7 @@ GameObject:
   - component: {fileID: 2049202498}
   - component: {fileID: 2049202499}
   m_Layer: 0
-  m_Name: ViewLayer
+  m_Name: GameViewLayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

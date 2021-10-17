@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 
 namespace Genesis.Creation {
-    internal sealed class ViewLayer: MonoBehaviour {
+    internal sealed class GameViewLayer: MonoBehaviour {
         [SerializeField]
         private TMP_Text countdownText;
 

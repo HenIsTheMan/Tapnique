@@ -10,9 +10,9 @@ using UnityEditor;
 #endif
 
 namespace Genesis.Creation {
-    internal sealed class ModelLayer: MonoBehaviour {
+    internal sealed class GameModelLayer: MonoBehaviour {
 		[SerializeField]
-		private ViewLayer viewLayer;
+		private GameViewLayer gameViewLayer;
 
         #if UNITY_EDITOR
 
@@ -61,7 +61,7 @@ namespace Genesis.Creation {
 				return !SceneManager.GetSceneByName(sceneName).isLoaded;
 			});
 
-			viewLayer.ActivateDeactivateCountdownTextGameObj(true);
+			gameViewLayer.ActivateDeactivateCountdownTextGameObj(true);
 			startGameTime = startGameCountdownTime;
 
 			while(startGameTime > 0.0f) {
@@ -69,17 +69,17 @@ namespace Genesis.Creation {
 				startGameTime = Mathf.Max(0.0f, startGameTime);
 
 				if(Mathf.Approximately(startGameTime, 0.0f)) {
-					viewLayer.ModifyStrOfCountdownText(countdownEndedStr);
+					gameViewLayer.ModifyStrOfCountdownText(countdownEndedStr);
 					break;
 				} else {
-					viewLayer.ModifyStrOfCountdownText(startGameTime);
+					gameViewLayer.ModifyStrOfCountdownText(startGameTime);
 					yield return null;
 				}
 			}
 
 			yield return WaitHelper.GetWaitForSeconds(startGameDelay);
 
-			viewLayer.ActivateDeactivateCountdownTextGameObj(false);
+			gameViewLayer.ActivateDeactivateCountdownTextGameObj(false);
 			StartGame();
 		}
 
