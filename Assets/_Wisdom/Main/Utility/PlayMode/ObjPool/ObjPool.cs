@@ -4,6 +4,14 @@ using UnityEngine;
 
 namespace Genesis.Wisdom {
     internal sealed class ObjPool: MonoBehaviour {
+		internal List<GameObject> ActiveObjs {
+			get => activeObjs;
+		}
+
+		internal List<GameObject> InactiveObjs {
+			get => inactiveObjs;
+		}
+
 		internal void InitMe(int size, [JetBrains.Annotations.NotNull] GameObject prefab, Transform parentTransform, string instanceName) {
 			activeObjs = new List<GameObject>(size);
 			inactiveObjs = new List<GameObject>(size);
@@ -36,6 +44,29 @@ namespace Genesis.Wisdom {
 				inactiveObjs.Add(GO);
 				_ = activeObjs.Remove(GO);
 			}
+		}
+
+		internal List<GameObject> ActivateAllObjs() {
+			List<GameObject> activatedGameObjs = new List<GameObject>(inactiveObjs.Count);
+
+			foreach(GameObject inactiveObj in inactiveObjs) {
+				inactiveObj.SetActive(true);
+				activatedGameObjs.Add(inactiveObj);
+			}
+
+			inactiveObjs.Clear();
+			activeObjs.AddRange(activatedGameObjs);
+
+			return activatedGameObjs;
+		}
+
+		internal void DeactivateAllObjs() {
+			foreach(GameObject activeObj in activeObjs) {
+				activeObj.SetActive(false);
+				inactiveObjs.Add(activeObj);
+			}
+
+			activeObjs.Clear();
 		}
 
 		private List<GameObject> activeObjs;
