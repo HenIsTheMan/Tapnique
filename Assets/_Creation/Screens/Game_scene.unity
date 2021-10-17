@@ -2058,7 +2058,7 @@ MonoBehaviour:
   gameButtonParentTransform: {fileID: 2090462670}
   gameButtonPoolData: {fileID: 11400000, guid: 63b04c31942e314489acb4a8afbf2d91, type: 2}
   initialSpd: 0.4
-  spdChange: 7
+  spdChange: 5.5
 --- !u!1 &2049202497
 GameObject:
   m_ObjectHideFlags: 0
