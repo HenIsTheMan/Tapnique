@@ -692,9 +692,10 @@ MonoBehaviour:
   startGameCountdownTime: 3
   countdownEndedStr: GO!
   startGameDelay: 0.7
-  objPool: {fileID: 2090462671}
-  objParentTransform: {fileID: 2090462670}
-  objPoolData: {fileID: 11400000, guid: 63b04c31942e314489acb4a8afbf2d91, type: 2}
+  totalGameTime: 15
+  buttonPool: {fileID: 2090462671}
+  buttonParentTransform: {fileID: 2090462670}
+  buttonPoolData: {fileID: 11400000, guid: 63b04c31942e314489acb4a8afbf2d91, type: 2}
 --- !u!1 &2049202497
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,6 +1018,8 @@ MonoBehaviour:
     - childRectTransform: {fileID: 1357097225}
       anchorPreset: 11
     - childRectTransform: {fileID: 88717126}
+      anchorPreset: 11
+    - childRectTransform: {fileID: 1036276971}
       anchorPreset: 11
     - childRectTransform: {fileID: 2090462670}
       anchorPreset: 11

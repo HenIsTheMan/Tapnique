@@ -2,6 +2,8 @@ using UnityEngine;
 using Genesis.Wisdom;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using System.Linq;
 
 #if UNITY_EDITOR
 
@@ -42,13 +44,13 @@ namespace Genesis.Creation {
 		private float gameTime;
 
 		[SerializeField]
-		private ObjPool objPool;
+		private ObjPool buttonPool;
 
 		[SerializeField]
-		private Transform objParentTransform;
+		private Transform buttonParentTransform;
 
 		[SerializeField]
-		private ObjPoolData objPoolData;
+		private ObjPoolData buttonPoolData;
 
 		#if UNITY_EDITOR
 
@@ -67,12 +69,14 @@ namespace Genesis.Creation {
 		private void Awake() {
 			WaitHelper.AddWaitForSeconds(startGameDelay);
 
-			objPool.InitMe(
-				objPoolData.Size,
-				objPoolData.Prefab,
-				objParentTransform,
-				objPoolData.InstanceName
+			buttonPool.InitMe(
+				buttonPoolData.Size,
+				buttonPoolData.Prefab,
+				buttonParentTransform,
+				buttonPoolData.InstanceName
 			);
+
+			gameViewLayer.ModifyStrOfGameTimeText(totalGameTime);
 
 			_ = StartCoroutine(nameof(StartGameCoroutine));
 		}
@@ -127,8 +131,37 @@ namespace Genesis.Creation {
 		}
 
 		private IEnumerator GameLogicCoroutine() {
-			int amtOfButtonsToSpawn = Random.Range(1, 4);
-			List<GameObject> activatedButtonGameObjs
+			while(true) {
+				int amtOfButtonsToSpawn = Random.Range(1, 4);
+				List<GameObject> activatedButtonGameObjs = new List<GameObject>(amtOfButtonsToSpawn);
+				GameObject buttonGameObj;
+				RectTransform myRectTransform;
+
+				for(int i = 0; i < amtOfButtonsToSpawn; ++i) {
+					buttonGameObj = buttonPool.ActivateObj();
+					myRectTransform = (RectTransform)buttonGameObj.transform;
+
+					myRectTransform.anchoredPosition = new Vector3(
+						Random.Range(
+							0.0f + myRectTransform.sizeDelta.x * 0.5f,
+							Screen.width - myRectTransform.sizeDelta.x * 0.5f
+						),
+						Random.Range(
+							0.0f + myRectTransform.sizeDelta.y * 0.5f,
+							Screen.height - myRectTransform.sizeDelta.y * 0.5f
+						),
+						0.0f
+					);
+
+					activatedButtonGameObjs.Add(buttonGameObj);
+				}
+
+				yield return new WaitWhile(() => {
+					return activatedButtonGameObjs.Any((gameObj) => {
+						return gameObj.activeInHierarchy;
+					});
+				});
+			}
 		}
 	}
 }
