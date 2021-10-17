@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Genesis.Creation {
     internal sealed class GameViewLayer: MonoBehaviour {
@@ -38,6 +39,15 @@ namespace Genesis.Creation {
             }
 
             gameTimeText.text = $"{minStr}:{secStr}";
+        }
+
+        internal void ColorizeGameButton(GameObject gameButtonGameObj) {
+            gameButtonGameObj.GetComponent<Image>().color = Color.HSVToRGB(
+                Random.Range(0.0f, 1.0f),
+                Random.Range(0.7f, 0.9f),
+                Random.Range(0.8f, 0.95f),
+                true
+            );
         }
     }
 }

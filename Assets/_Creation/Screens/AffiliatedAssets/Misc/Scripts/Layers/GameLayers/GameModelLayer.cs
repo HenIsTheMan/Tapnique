@@ -143,6 +143,8 @@ namespace Genesis.Creation {
 
 				for(int i = 0; i < amtOfButtonsToSpawn; ++i) {
 					gameButtonGameObj = gameButtonPool.ActivateObj();
+					gameViewLayer.ColorizeGameButton(gameButtonGameObj);
+
 					myRectTransform = (RectTransform)gameButtonGameObj.transform;
 
 					xOffset = myRectTransform.sizeDelta.x * myRectTransform.localScale.x * 0.5f;
