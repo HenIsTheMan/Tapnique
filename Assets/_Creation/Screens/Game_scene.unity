@@ -1326,6 +1326,7 @@ MonoBehaviour:
   ptsText: {fileID: 1631288690}
   roundTimeText: {fileID: 869014482}
   roundTimePrecision: 2
+  roundTimeNumericFormatStr: F2
   gameCamCanvas: {fileID: 2023829666977307840}
   gameEndCamCanvas: {fileID: 319450559}
 --- !u!1 &2090462669

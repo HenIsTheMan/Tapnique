@@ -26,13 +26,15 @@ namespace Genesis.Creation {
         [SerializeField]
         private int roundTimePrecision;
 
+        [UnmodifiableInInspector]
+        [SerializeField]
+        private string roundTimeNumericFormatStr;
+
         [SerializeField]
         private Canvas gameCamCanvas;
 
         [SerializeField]
         private Canvas gameEndCamCanvas;
-
-        private string roundTimeNumericFormatStr;
 
         internal void ActivateDeactivateCountdownTextGameObj(bool isActivation) {
             countdownText.gameObject.SetActive(isActivation);
