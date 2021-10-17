@@ -80,6 +80,7 @@ namespace Genesis.Creation {
 
 			yield return WaitHelper.GetWaitForSeconds(startGameDelay);
 
+			countdownText.gameObject.SetActive(false);
 			StartGame();
 		}
 
