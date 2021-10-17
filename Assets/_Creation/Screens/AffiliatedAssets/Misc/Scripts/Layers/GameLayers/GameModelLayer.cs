@@ -228,10 +228,48 @@ namespace Genesis.Creation {
 					gameButtonLinkList.Add(gameButtonLink);
 				}
 
+				Vector3 anchoredPos;
+				Vector3 vel;
+
 				while(gameButtonPool.ActiveObjs.Any((gameObj) => {
 					return gameObj.activeInHierarchy;
 				}) && roundTime > 0.0f) {
 					gameButtonLinkList.ForEach((gameButtonLink) => {
+						myRectTransform = (RectTransform)gameButtonLink.transform;
+
+						xOffset = myRectTransform.sizeDelta.x * myRectTransform.localScale.x * 0.5f;
+						yOffset = myRectTransform.sizeDelta.y * myRectTransform.localScale.y * 0.5f;
+
+						anchoredPos = myRectTransform.anchoredPosition;
+						vel = gameButtonLink.MyRigidbody.velocity;
+
+						if(anchoredPos.x < -halfScreenWidth + xOffset) {
+							anchoredPos.x = -halfScreenWidth + xOffset;
+							vel.x = -vel.x;
+							gameButtonLink.dir.x = -gameButtonLink.dir.x;
+						}
+
+						if(anchoredPos.x > halfScreenWidth - xOffset) {
+							anchoredPos.x = halfScreenWidth - xOffset;
+							vel.x = -vel.x;
+							gameButtonLink.dir.x = -gameButtonLink.dir.x;
+						}
+
+						if(anchoredPos.y < -halfScreenHeight + yOffset) {
+							anchoredPos.y = -halfScreenHeight + yOffset;
+							vel.y = -vel.y;
+							gameButtonLink.dir.y = -gameButtonLink.dir.y;
+						}
+
+						if(anchoredPos.y > halfScreenHeight - yOffset) {
+							anchoredPos.y = halfScreenHeight - yOffset;
+							vel.y = -vel.y;
+							gameButtonLink.dir.y = -gameButtonLink.dir.y;
+						}
+
+						myRectTransform.anchoredPosition = anchoredPos;
+						gameButtonLink.MyRigidbody.velocity = vel;
+
 						gameButtonLink.MyRigidbody.velocity
 							+= gameButtonLink.dir
 							* spdChange
