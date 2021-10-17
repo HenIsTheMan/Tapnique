@@ -27,10 +27,12 @@ namespace Genesis.Creation {
 			eventTrigger.triggers.Add(ptrUpEntry);
 
 			void OnPtrDownHandler() {
+				gameButtonLink.PtrUpAnim.StopAnim();
 				gameButtonLink.PtrDownAnim.StartAnim(true);
 			}
 
 			void OnPtrUpHandler() {
+				gameButtonLink.PtrDownAnim.StopAnim();
 				gameButtonLink.PtrUpAnim.StartAnim(true);
 			}
 		}

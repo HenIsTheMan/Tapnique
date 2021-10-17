@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 2381995120893318884}
   - component: {fileID: 2381995120893318887}
   - component: {fileID: 2725388901196207467}
+  - component: {fileID: 4092429924762781034}
+  - component: {fileID: 422609349868238557}
   m_Layer: 5
   m_Name: GameButtonPrefab
   m_TagString: Untagged
@@ -29,7 +31,7 @@ RectTransform:
   m_GameObject: {fileID: 2381995120893318880}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4, y: 1.4, z: 1}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -52,8 +54,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <MyEventTrigger>k__BackingField: {fileID: 2725388901196207467}
-  <PtrDownAnim>k__BackingField: {fileID: 0}
-  <PtrUpAnim>k__BackingField: {fileID: 0}
+  <PtrDownAnim>k__BackingField: {fileID: 4092429924762781034}
+  <PtrUpAnim>k__BackingField: {fileID: 422609349868238557}
 --- !u!222 &2381995120893318884
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -105,3 +107,91 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates: []
+--- !u!114 &4092429924762781034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2381995120893318880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1db34a01dc3a5164283a31d17db9a4e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLooping: 0
+  startTimeOffset: 0
+  animDuration: 0.4
+  shldPresetValsNow: 0
+  presetLerpFactor: 0
+  periodicDelayList: []
+  myRateOfChangeType: 3
+  shldUseUnscaledDt: 0
+  shldUseWaitForSecondsRealtime: 0
+  shldPlayOnAwake: 0
+  isUpdating: 0
+  myTransform: {fileID: 2381995120893318881}
+  scaleAnimSupport:
+    shldShowScale: 1
+    shldAnimateVec3:
+      shldAnimateX: 1
+      shldAnimateY: 1
+      shldAnimateZ: 0
+    startScale:
+      x: 1.4
+      y: 1.4
+      z: 0
+      shldShowX: 1
+      shldShowY: 1
+      shldShowZ: 0
+    endScale:
+      x: 1.2
+      y: 1.2
+      z: 0
+      shldShowX: 1
+      shldShowY: 1
+      shldShowZ: 0
+--- !u!114 &422609349868238557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2381995120893318880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1db34a01dc3a5164283a31d17db9a4e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLooping: 0
+  startTimeOffset: 0
+  animDuration: 0.4
+  shldPresetValsNow: 0
+  presetLerpFactor: 0
+  periodicDelayList: []
+  myRateOfChangeType: 21
+  shldUseUnscaledDt: 0
+  shldUseWaitForSecondsRealtime: 0
+  shldPlayOnAwake: 0
+  isUpdating: 0
+  myTransform: {fileID: 2381995120893318881}
+  scaleAnimSupport:
+    shldShowScale: 1
+    shldAnimateVec3:
+      shldAnimateX: 1
+      shldAnimateY: 1
+      shldAnimateZ: 0
+    startScale:
+      x: 1.2
+      y: 1.2
+      z: 0
+      shldShowX: 1
+      shldShowY: 1
+      shldShowZ: 0
+    endScale:
+      x: 1.4
+      y: 1.4
+      z: 0
+      shldShowX: 1
+      shldShowY: 1
+      shldShowZ: 0
