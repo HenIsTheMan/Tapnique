@@ -602,6 +602,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7142958120884233650, guid: ae014ed3754c73e418aada383e15cc02,
         type: 3}
+      propertyPath: m_text
+      value: New High Score!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142958120884233650, guid: ae014ed3754c73e418aada383e15cc02,
+        type: 3}
       propertyPath: m_fontSize
       value: 140
       objectReference: {fileID: 0}

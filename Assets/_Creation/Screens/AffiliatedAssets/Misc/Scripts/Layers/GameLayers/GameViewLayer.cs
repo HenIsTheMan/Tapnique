@@ -5,6 +5,7 @@ using Genesis.Wisdom;
 
 #if UNITY_EDITOR
 
+using UnityEditor.SceneManagement;
 using UnityEditor;
 
 #endif
@@ -141,6 +142,9 @@ namespace Genesis.Creation {
             if(newHighScoreText != null) {
                 newHighScoreText.text = newHighScoreStr;
             }
+
+            EditorUtility.SetDirty(newHighScoreText);
+            EditorSceneManager.SaveScene(gameObject.scene);
 
             Awake();
         }

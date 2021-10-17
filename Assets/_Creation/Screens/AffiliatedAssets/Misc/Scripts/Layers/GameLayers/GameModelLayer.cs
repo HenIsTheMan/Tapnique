@@ -162,7 +162,16 @@ namespace Genesis.Creation {
 		private void EndGame() {
 			StopCoroutine(nameof(GameLogicCoroutine));
 
-			gameViewLayer.ShowGameEndView(true, 4, 4); //??
+			int highScore = PlayerPrefs.GetInt(nameof(pts), 0);
+
+			if(pts > highScore) {
+				highScore = pts;
+				PlayerPrefs.SetInt(nameof(pts), highScore);
+
+				gameViewLayer.ShowGameEndView(true, pts, highScore);
+			} else {
+				gameViewLayer.ShowGameEndView(false, pts, highScore);
+			}
 		}
 
 		private IEnumerator GameLogicCoroutine() {
