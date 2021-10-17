@@ -68,7 +68,7 @@ namespace Genesis.Creation {
 		private float initialSpd;
 
 		[SerializeField]
-		private float spdChange;
+		private float spdMultiplier;
 
 		#if UNITY_EDITOR
 
@@ -271,10 +271,8 @@ namespace Genesis.Creation {
 						gameButtonLink.MyRigidbody.velocity = vel;
 
 						gameButtonLink.MyRigidbody.velocity
-							+= gameButtonLink.dir
-							* spdChange
-							* RateOfChange.EaseInSine(1.0f - gameTime / totalGameTime)
-							* Time.deltaTime;
+							= gameButtonLink.dir
+							* (initialSpd + RateOfChange.EaseInSine(1.0f - gameTime / totalGameTime) * spdMultiplier);
 					});
 
 					roundTime -= Time.deltaTime;
