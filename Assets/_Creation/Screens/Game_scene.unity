@@ -2057,12 +2057,8 @@ MonoBehaviour:
   gameButtonPool: {fileID: 2090462671}
   gameButtonParentTransform: {fileID: 2090462670}
   gameButtonPoolData: {fileID: 11400000, guid: 63b04c31942e314489acb4a8afbf2d91, type: 2}
-  minInitialVelX: -0.4
-  maxInitialVelX: 0.4
-  minInitialVelY: -0.4
-  maxInitialVelY: 0.4
-  xVelChange: 7
-  yVelChange: 7
+  initialSpd: 0.4
+  spdChange: 7
 --- !u!1 &2049202497
 GameObject:
   m_ObjectHideFlags: 0

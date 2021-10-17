@@ -65,22 +65,10 @@ namespace Genesis.Creation {
 		private ObjPoolData gameButtonPoolData;
 
 		[SerializeField]
-		private float minInitialVelX;
+		private float initialSpd;
 
 		[SerializeField]
-		private float maxInitialVelX;
-
-		[SerializeField]
-		private float minInitialVelY;
-
-		[SerializeField]
-		private float maxInitialVelY;
-
-		[SerializeField]
-		private float xVelChange;
-
-		[SerializeField]
-		private float yVelChange;
+		private float spdChange;
 
 		#if UNITY_EDITOR
 
@@ -213,11 +201,10 @@ namespace Genesis.Creation {
 
 					gameViewLayer.ColorizeGameButton(gameButtonLink);
 
-					gameButtonLink.MyRigidbody.velocity = new Vector3(
-						Random.Range(minInitialVelX, maxInitialVelX),
-						Random.Range(minInitialVelY, maxInitialVelY),
-						0.0f
-					);
+					gameButtonLink.dir = Random.insideUnitCircle.normalized;
+					gameButtonLink.MyRigidbody.velocity
+						= gameButtonLink.dir
+						* initialSpd;
 
 					myRectTransform = (RectTransform)gameButtonGameObj.transform;
 
@@ -245,11 +232,11 @@ namespace Genesis.Creation {
 					return gameObj.activeInHierarchy;
 				}) && roundTime > 0.0f) {
 					gameButtonLinkList.ForEach((gameButtonLink) => {
-						gameButtonLink.MyRigidbody.velocity += new Vector3(
-							xVelChange,
-							yVelChange,
-							0.0f
-						) * RateOfChange.EaseInSine(1.0f - gameTime / totalGameTime) * Time.deltaTime;
+						gameButtonLink.MyRigidbody.velocity
+							+= gameButtonLink.dir
+							* spdChange
+							* RateOfChange.EaseInSine(1.0f - gameTime / totalGameTime)
+							* Time.deltaTime;
 					});
 
 					roundTime -= Time.deltaTime;

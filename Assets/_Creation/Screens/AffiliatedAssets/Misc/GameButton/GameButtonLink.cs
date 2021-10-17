@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 namespace Genesis.Creation {
     internal sealed class GameButtonLink: MonoBehaviour { //POD
+        internal Vector3 dir;
+
         [field: SerializeField]
         internal Image Img {
             get;
