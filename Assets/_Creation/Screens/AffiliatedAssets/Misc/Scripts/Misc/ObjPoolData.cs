@@ -6,16 +6,28 @@ namespace Genesis.Creation {
 		menuName = "ScriptableObjs/" + nameof(ObjPoolData)
 	)]
 	internal sealed class ObjPoolData: ScriptableObject {
-		[SerializeField]
-		private int size;
+		[field: SerializeField]
+		internal int Size {
+			get;
+			private set;
+		}
 
-		[SerializeField]
-		private GameObject prefab;
+		[field: SerializeField]
+		internal GameObject Prefab {
+			get;
+			private set;
+		}
 
-		[SerializeField]
-		private Transform parentTransform;
+		[field: SerializeField]
+		internal Transform ParentTransform {
+			get;
+			private set;
+		}
 
-		[SerializeField]
-		private string instanceName;
+		[field: SerializeField]
+		internal string InstanceName {
+			get;
+			private set;
+		}
 	}
 }
