@@ -2,6 +2,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+#if UNITY_EDITOR
+
+using UnityEditor;
+
+#endif
+
 namespace Genesis.Creation {
     internal sealed class GameViewLayer: MonoBehaviour {
         [SerializeField]
@@ -39,6 +45,12 @@ namespace Genesis.Creation {
             }
 
             gameTimeText.text = $"{minStr}:{secStr}";
+
+            #if UNITY_EDITOR
+
+            EditorUtility.SetDirty(gameTimeText);
+
+            #endif
         }
 
         internal void ColorizeGameButton(GameObject gameButtonGameObj) {
