@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Genesis.Wisdom;
+using System.Threading.Tasks;
 
 #if UNITY_EDITOR
 
@@ -144,9 +145,15 @@ namespace Genesis.Creation {
             }
 
             EditorUtility.SetDirty(newHighScoreText);
-            EditorSceneManager.SaveScene(gameObject.scene);
 
             Awake();
+
+            Task myTask = new Task(async () => {
+                await Task.Delay(14); //Just in case
+                EditorSceneManager.SaveScene(gameObject.scene);
+            });
+
+            myTask.RunSynchronously();
         }
 
         #endif
