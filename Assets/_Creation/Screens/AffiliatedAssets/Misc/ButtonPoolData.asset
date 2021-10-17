@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 373d7f4902fb86a4bb7a623be2e4e2f4, type: 3}
   m_Name: ButtonPoolData
   m_EditorClassIdentifier: 
-  <Size>k__BackingField: 0
-  <Prefab>k__BackingField: {fileID: 0}
-  <ParentTransform>k__BackingField: {fileID: 0}
-  <InstanceName>k__BackingField: 
+  <Size>k__BackingField: 999
+  <Prefab>k__BackingField: {fileID: 2381995120893318880, guid: a6ebc6373a1d850488d437862f36d7fd,
+    type: 3}
+  <InstanceName>k__BackingField: Button
