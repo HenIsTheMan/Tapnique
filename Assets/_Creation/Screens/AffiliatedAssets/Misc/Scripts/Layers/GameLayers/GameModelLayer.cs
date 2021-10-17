@@ -210,7 +210,7 @@ namespace Genesis.Creation {
 					yield return null;
 				}
 
-				pts += (int)Mathf.Round(300.0f - roundTime * 100.0f);
+				pts += (int)Mathf.Floor(roundTime * 100.0f);
 				gameViewLayer.ModifyStrOfPtsText(pts);
 
 				gameButtonPool.DeactivateAllObjs();
