@@ -6,6 +6,9 @@ namespace Genesis.Creation {
         [SerializeField]
         private TMP_Text countdownText;
 
+        [SerializeField]
+        private TMP_Text gameTimeText;
+
         internal void ActivateDeactivateCountdownTextGameObj(bool isActivation) {
             countdownText.gameObject.SetActive(isActivation);
         }
@@ -16,6 +19,25 @@ namespace Genesis.Creation {
 
         internal void ModifyStrOfCountdownText(float val) {
             countdownText.text = Mathf.Ceil(val).ToString();
+        }
+
+        internal void ModifyStrOfGameTimeText(float val) {
+            int valInt = (int)Mathf.Ceil(val);
+
+            int min = valInt / 60;
+            int sec = valInt % 60;
+
+            string minStr = min.ToString();
+            if(min < 10) {
+                minStr = '0' + minStr;
+            }
+
+            string secStr = sec.ToString();
+            if(sec < 10) {
+                secStr = '0' + secStr;
+            }
+
+            gameTimeText.text = $"{minStr}:{secStr}";
         }
     }
 }

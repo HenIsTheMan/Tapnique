@@ -37,6 +37,11 @@ namespace Genesis.Creation {
 		private float startGameTime;
 
 		[SerializeField]
+		private float totalGameTime;
+
+		private float gameTime;
+
+		[SerializeField]
 		private ObjPool objPool;
 
 		[SerializeField]
@@ -100,7 +105,30 @@ namespace Genesis.Creation {
 		}
 
 		private void StartGame() {
-			print("here");
+			gameTime = totalGameTime;
+			_ = StartCoroutine(nameof(GameTimeCoroutine));
+			_ = StartCoroutine(nameof(GameLogicCoroutine));
 		}
-    }
+
+		private IEnumerator GameTimeCoroutine() {
+			while(gameTime > 0.0f) {
+				gameTime -= Time.deltaTime;
+				gameTime = Mathf.Max(0.0f, gameTime);
+
+				gameViewLayer.ModifyStrOfGameTimeText(gameTime);
+				yield return null;
+			}
+
+			EndGame();
+		}
+
+		private void EndGame() {
+			StopCoroutine(nameof(GameLogicCoroutine));
+		}
+
+		private IEnumerator GameLogicCoroutine() {
+			int amtOfButtonsToSpawn = Random.Range(1, 4);
+			List<GameObject> activatedButtonGameObjs
+		}
+	}
 }
