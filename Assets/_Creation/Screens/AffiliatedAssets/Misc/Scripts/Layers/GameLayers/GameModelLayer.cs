@@ -7,6 +7,7 @@ using System.Linq;
 
 #if UNITY_EDITOR
 
+using UnityEditor.SceneManagement;
 using UnityEditor;
 
 #endif
@@ -55,13 +56,19 @@ namespace Genesis.Creation {
 		#if UNITY_EDITOR
 
 		private void OnValidate() {
-			if(EditorApplication.isPlayingOrWillChangePlaymode || sceneAsset == null) {
+			if(EditorApplication.isPlayingOrWillChangePlaymode) {
 				return;
 			}
 
-			sceneName = sceneAsset.name;
+			if(sceneAsset != null) {
+				sceneName = sceneAsset.name;
+			}
 
-			EditorUtility.SetDirty(this); //So can do File --> Save Project
+			if(gameViewLayer != null) {
+				gameViewLayer.ModifyStrOfGameTimeText(totalGameTime);
+			}
+
+			EditorSceneManager.SaveScene(gameObject.scene);
 		}
 
 		#endif
@@ -75,8 +82,6 @@ namespace Genesis.Creation {
 				gameButtonParentTransform,
 				gameButtonPoolData.InstanceName
 			);
-
-			gameViewLayer.ModifyStrOfGameTimeText(totalGameTime);
 
 			_ = StartCoroutine(nameof(StartGameCoroutine));
 		}
@@ -170,6 +175,8 @@ namespace Genesis.Creation {
 						return gameObj.activeInHierarchy;
 					});
 				});
+
+				gameButtonPool.DeactivateAllObjs();
 			}
 		}
 	}
