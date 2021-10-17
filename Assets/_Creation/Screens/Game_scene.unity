@@ -294,6 +294,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7142958120884233650, guid: ae014ed3754c73e418aada383e15cc02,
         type: 3}
+      propertyPath: m_text
+      value: Game Over!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142958120884233650, guid: ae014ed3754c73e418aada383e15cc02,
+        type: 3}
       propertyPath: m_fontSize
       value: 140
       objectReference: {fileID: 0}
@@ -718,17 +723,17 @@ PrefabInstance:
     - target: {fileID: 7142958120884233548, guid: ae014ed3754c73e418aada383e15cc02,
         type: 3}
       propertyPath: m_Name
-      value: NewHighScoreText
+      value: GameOverNewHighScoreText
       objectReference: {fileID: 0}
     - target: {fileID: 7142958120884233548, guid: ae014ed3754c73e418aada383e15cc02,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7142958120884233650, guid: ae014ed3754c73e418aada383e15cc02,
         type: 3}
       propertyPath: m_text
-      value: New High Score!
+      value: Game Over!
       objectReference: {fileID: 0}
     - target: {fileID: 7142958120884233650, guid: ae014ed3754c73e418aada383e15cc02,
         type: 3}
@@ -886,6 +891,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HighScoreText
+      objectReference: {fileID: 0}
+    - target: {fileID: 7142958120884233650, guid: ae014ed3754c73e418aada383e15cc02,
+        type: 3}
+      propertyPath: m_text
+      value: Game Over!
       objectReference: {fileID: 0}
     - target: {fileID: 7142958120884233650, guid: ae014ed3754c73e418aada383e15cc02,
         type: 3}
@@ -2099,9 +2109,10 @@ MonoBehaviour:
   roundTimeNumericFormatStr: F2
   gameCamCanvas: {fileID: 2023829666977307840}
   gameEndCamCanvas: {fileID: 319450559}
-  newHighScoreText: {fileID: 517920588}
+  gameOverNewHighScoreText: {fileID: 517920588}
   scoreText: {fileID: 130782076}
   highScoreText: {fileID: 589805985}
+  gameOverStr: Game Over!
   newHighScoreStr: New High Score!
 --- !u!1 &2090462669
 GameObject:

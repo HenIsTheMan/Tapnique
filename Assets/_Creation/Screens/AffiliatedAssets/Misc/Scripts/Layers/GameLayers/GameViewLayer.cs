@@ -42,13 +42,16 @@ namespace Genesis.Creation {
         private Canvas gameEndCamCanvas;
 
         [SerializeField]
-        private TMP_Text newHighScoreText;
+        private TMP_Text gameOverNewHighScoreText;
 
         [SerializeField]
         private TMP_Text scoreText;
 
         [SerializeField]
         private TMP_Text highScoreText;
+
+        [SerializeField]
+        private string gameOverStr;
 
         [SerializeField]
         private string newHighScoreStr;
@@ -124,7 +127,7 @@ namespace Genesis.Creation {
             gameEndCamCanvas.gameObject.SetActive(true);
 
             if(hadGottenHighScore) {
-                newHighScoreText.gameObject.SetActive(true);
+                gameOverNewHighScoreText.text = newHighScoreStr;
             }
 
             scoreText.text = "Score: " + score.ToString();
@@ -140,11 +143,10 @@ namespace Genesis.Creation {
                 return;
             }
 
-            if(newHighScoreText != null) {
-                newHighScoreText.text = newHighScoreStr;
+            if(gameOverNewHighScoreText != null) {
+                gameOverNewHighScoreText.text = gameOverStr;
+                EditorUtility.SetDirty(gameOverNewHighScoreText);
             }
-
-            EditorUtility.SetDirty(newHighScoreText);
 
             Awake();
 
