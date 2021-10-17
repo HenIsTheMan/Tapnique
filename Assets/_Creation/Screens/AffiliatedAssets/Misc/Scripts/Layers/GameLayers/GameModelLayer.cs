@@ -171,11 +171,6 @@ namespace Genesis.Creation {
 			float halfScreenHeight = Screen.height * 0.5f;
 
 			while(true) {
-				roundTime -= Time.deltaTime;
-				roundTime = Mathf.Max(0.0f, roundTime);
-
-				gameViewLayer.ModifyStrOfRoundTimeText(roundTime);
-
 				int amtOfButtonsToSpawn = Random.Range(1, 4);
 				GameObject gameButtonGameObj;
 				RectTransform myRectTransform;
@@ -205,13 +200,17 @@ namespace Genesis.Creation {
 					GameControllerLayer.GlobalObj.ConfigGameButton(gameButtonGameObj);
 				}
 
-				yield return new WaitWhile(() => {
-					return gameButtonPool.ActiveObjs.Any((gameObj) => {
-						return gameObj.activeInHierarchy;
-					}) && roundTime > 0.0f;
-				});
+				while(gameButtonPool.ActiveObjs.Any((gameObj) => {
+					return gameObj.activeInHierarchy;
+				}) && roundTime > 0.0f) {
+					roundTime -= Time.deltaTime;
+					roundTime = Mathf.Max(0.0f, roundTime);
 
-				pts += (int)Mathf.Ceil(300.0f - roundTime * 100.0f);
+					gameViewLayer.ModifyStrOfRoundTimeText(roundTime);
+					yield return null;
+				}
+
+				pts += (int)Mathf.Round(300.0f - roundTime * 100.0f);
 				gameViewLayer.ModifyStrOfPtsText(pts);
 
 				gameButtonPool.DeactivateAllObjs();
